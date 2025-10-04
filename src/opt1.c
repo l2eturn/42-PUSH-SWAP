@@ -1,0 +1,48 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   opt1.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: slimvutt <slimvut@fpgij;dgj;ds.com>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/05 03:49:05 by slimvutt          #+#    #+#             */
+/*   Updated: 2025/10/05 03:49:05 by slimvutt         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "pushswap.h"
+
+void sa(t_stack *a)
+{
+	t_node	*first;
+	t_node	*second;
+	t_node	*tmp;
+
+	if (a->size < 2)
+		return ;
+	first = a->top;
+	second = a->top->next;
+	tmp = second -> next;
+
+	first -> next = tmp;
+	if (second -> next)
+		tmp->prev = first;
+	else
+		a -> bottom = first;
+	second -> next = first;
+	second -> prev = NULL;
+	first -> prev = second;
+	a -> top = second;
+}
+
+//void sb(t_stack *b)
+//{
+	
+//}
+
+//void ss(t_stack *a, t_stack *b)
+//{
+	
+//}
+
+//sa/sb/ss
