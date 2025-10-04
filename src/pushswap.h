@@ -12,7 +12,7 @@
 
 # ifndef	PUSHSWAP_H
 # define	PUSHSWAP_H
-# include	"libft/libft.h"
+# include	"../libft/libft.h"
 # include 	<limits.h>
 //---------------------------------------------------------------
 typedef struct	s_node
