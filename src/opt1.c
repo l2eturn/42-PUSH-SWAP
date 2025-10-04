@@ -33,16 +33,38 @@ void sa(t_stack *a)
 	second -> prev = NULL;
 	first -> prev = second;
 	a -> top = second;
+	ft_putstr_fd("sa\n", 1);
 }
 
-//void sb(t_stack *b)
-//{
-	
-//}
+void sb(t_stack *b)
+{
+	t_node	*first;
+	t_node	*second;
+	t_node	*tmp;
 
-//void ss(t_stack *a, t_stack *b)
-//{
-	
-//}
+	if (b->size < 2)
+		return ;
+	first = b->top;
+	second = b->top->next;
+	tmp = second -> next;
+
+	first -> next = tmp;
+	if (second -> next)
+		tmp->prev = first;
+	else
+		b -> bottom = first;
+	second -> next = first;
+	second -> prev = NULL;
+	first -> prev = second;
+	b -> top = second;
+	ft_putstr_fd("sb", 1);
+}
+
+void ss(t_stack *a, t_stack *b)
+{
+	sa(a);
+	sb(b);
+	ft_putstr_fd("ss", 1);
+}
 
 //sa/sb/ss

@@ -38,7 +38,9 @@ t_stack			*init_a(t_stack *st);
 t_stack			*init_stack_b(void);
 t_stack			*init_stack_a(char **args, int i);
 void			print_stack(t_stack *stack, char name);
- 
+void			sa(t_stack *a);
+void			sb(t_stack *b);
+void			ss(t_stack *a, t_stack *b);
 //---------------------------------------------------------------
 
 # endif
