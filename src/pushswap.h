@@ -41,7 +41,7 @@ t_node			*new_t(t_stack *stack, int nbr);
 t_stack			*init_a(void);
 t_stack			*init_stack_b(void);
 t_stack			*init_stack_a(char **args, int i);
-void			print_stack(t_stack *stack, char name);
+void			free_init_a_if_error(t_stack *stack);
 void			sa(t_stack *a);
 void			sb(t_stack *b);
 void			ss(t_stack *a, t_stack *b);
@@ -54,4 +54,5 @@ void			rra(t_stack *a);
 void			rrb(t_stack *b);
 void			rrr(t_stack *a, t_stack *b);
 //---------------------------------------------------------------
+void			print_stack(t_stack *stack, char name);
 #endif

@@ -50,3 +50,9 @@ void	free_stack(t_stack *stack)
 	}
 	free(stack);
 }
+
+void	free_init_a_if_error(t_stack *stack)
+{
+	ft_putstr_fd("Error\n", 2);
+	free_stack(stack);
+}

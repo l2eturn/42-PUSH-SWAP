@@ -58,7 +58,7 @@ t_stack	*init_stack_a(char **args, int i)
 		nbr = ft_atoi(args[i]);
 		if (nbr > INT_MAX || nbr < INT_MIN || ft_check(stack, args[i], (int)nbr) == 0)
 		{
-			ft_putstr_fd("Error\n", 2);
+			free_init_a_if_error(stack);
 			return (NULL);
 		}
 		new = new_t(stack, (int)nbr);
