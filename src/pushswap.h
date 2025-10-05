@@ -47,6 +47,6 @@ void			rb(t_list *b);
 void			rr(t_list *a, t_list *b);
 void			rra(t_stack *a);
 void			rrb(t_stack *b);
-
+void			rrr(t_stack *a, t_stack *b);
 //---------------------------------------------------------------
 #endif
