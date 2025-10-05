@@ -18,14 +18,14 @@ CFLAGS = -Werror -Wall -Wextra -fsanitize=address
 
 RM = rm -rf
 
-SRCS =	libft/libft.a\
-		src/main.c\
+SRCS =	src/main.c\
 		src/print_stack.c\
 		src/opt1.c\
 		src/opt2.c\
 		src/opt3.c\
 		src/opt4.c\
 		src/utils.c\
+		libft/libft.a\
 
 $(NAME) : 
 	make bonus -C libft

@@ -91,6 +91,8 @@ int	main(int ac, char **av)
 	stack_a = init_stack_a(args, i);
 	stack_b = init_stack_b();
 //---------------------------------------------------------------	
+	print_stack(stack_a, 'A');
+	print_stack(stack_b, 'B');
 	free_stack(stack_a);
 	free_stack(stack_b);
 //---------------------------------------------------------------	
