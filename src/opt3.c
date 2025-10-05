@@ -14,7 +14,7 @@
 
 void	ra(t_stack *a)
 {
-	t_node *first;
+	t_node	*first;
 
 	if (a->size < 2)
 		return ;
@@ -27,9 +27,10 @@ void	ra(t_stack *a)
 	a->bottom = first;
 	ft_putstr_fd("ra\n", 1);
 }
+
 void	rb(t_stack *b)
 {
-	t_node *first;
+	t_node	*first;
 
 	if (b->size < 2)
 		return ;
