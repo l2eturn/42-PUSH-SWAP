@@ -30,7 +30,6 @@ typedef	struct	s_stack
 	int			size;
 }				t_stack;
 //---------------------------------------------------------------
-
 int				ft_check(t_stack *stack, char *nbr, int value);
 void			free_stack(t_stack *stack);
 t_node			*new_t(t_stack *stack, int nbr);
@@ -44,5 +43,4 @@ void			ss(t_stack *a, t_stack *b);
 void			pa(t_stack *a, t_stack *b);
 void			pb(t_stack *a, t_stack *b);
 //---------------------------------------------------------------
-
 # endif

@@ -89,10 +89,14 @@ int	main(int ac, char **av)
 		i = 1;
 	stack_a = init_stack_a(args, i);
 	stack_b = init_stack_b();
-	sa(stack_a);
-	pb(stack_a,stack_b);
-	pb(stack_a,stack_b);
-	print_stack(stack_a, 'A');
+//---------------------------------------------------------------	
 	free_stack(stack_a);
 	free_stack(stack_b);
+//---------------------------------------------------------------	
 }
+
+	//sa(stack_a);
+	//pb(stack_a,stack_b);
+	//pb(stack_a,stack_b);
+	//print_stack(stack_a, 'A');
+	//print_stack(stack_b, 'B');
