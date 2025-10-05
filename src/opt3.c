@@ -43,7 +43,7 @@ void	rb(t_stack *b)
 	ft_putstr_fd("rb\n", 1);
 }
 
-void	rr(t_list *a, t_list *b)
+void	rr(t_stack *a, t_stack *b)
 {
 	ra(a);
 	rb(b);
