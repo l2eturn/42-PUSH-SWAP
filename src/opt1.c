@@ -12,7 +12,7 @@
 
 #include "pushswap.h"
 
-void sa(t_stack *a)
+void	sa(t_stack *a)
 {
 	t_node	*first;
 	t_node	*second;
@@ -36,7 +36,7 @@ void sa(t_stack *a)
 	ft_putstr_fd("sa\n", 1);
 }
 
-void sb(t_stack *b)
+void	sb(t_stack *b)
 {
 	t_node	*first;
 	t_node	*second;
@@ -60,7 +60,7 @@ void sb(t_stack *b)
 	ft_putstr_fd("sb", 1);
 }
 
-void ss(t_stack *a, t_stack *b)
+void	ss(t_stack *a, t_stack *b)
 {
 	sa(a);
 	sb(b);

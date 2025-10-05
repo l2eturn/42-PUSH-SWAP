@@ -13,3 +13,16 @@
 #include "pushswap.h"
 
 //pa/pb
+void	pa(t_stack *a, t_stack *b)
+{
+	t_node	*node;
+	if (b -> size == 0)
+		return ;
+	
+	
+}
+
+void	pb(t_stack *a, t_stack *b)
+{
+
+}
