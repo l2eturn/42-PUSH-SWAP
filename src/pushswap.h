@@ -44,3 +44,30 @@ void			ss(t_stack *a, t_stack *b);
 //---------------------------------------------------------------
 
 # endif
+
+void pa(t_stack *a, t_stack *b)
+{
+    t_node *node;
+
+    if (b->size == 0)
+        return;
+
+    node = b->top;
+    b->top = node->next;
+    if (b->top)
+        b->top->prev = NULL;
+    else
+        b->bottom = NULL;
+    b->size--;
+
+    node->next = a->top;
+    if (a->top)
+        a->top->prev = node;
+    else
+        a->bottom = node;
+    node->prev = NULL;
+    a->top = node;
+    a->size++;
+
+    ft_putstr_fd("pa\n", 1);
+}
