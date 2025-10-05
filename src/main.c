@@ -22,8 +22,9 @@ t_node	*new_t(t_stack *stack, int nbr)
 	return (new);
 }
 
-t_stack	*init_a(t_stack *st)
+t_stack	*init_a(void)
 {
+	t_stack	*st;
 	st = malloc(sizeof(t_stack));
 	if (!st)
 		return (NULL);
@@ -37,7 +38,7 @@ t_stack	*init_stack_b(void)
 {
 	t_stack	*stack;
 
-	stack = init_a(stack);
+	stack = init_a();
 	if (!stack)
 		return (NULL);
 	return (stack);
@@ -49,7 +50,7 @@ t_stack	*init_stack_a(char **args, int i)
 	t_node	*new;
 	long	nbr;
 
-	stack = init_a(stack);
+	stack = init_a();
 	if (!stack)
 		return (NULL);
 	while (args[i])

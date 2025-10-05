@@ -38,7 +38,7 @@ typedef struct s_stack
 int				ft_check(t_stack *stack, char *nbr, int value);
 void			free_stack(t_stack *stack);
 t_node			*new_t(t_stack *stack, int nbr);
-t_stack			*init_a(t_stack *st);
+t_stack			*init_a(void);
 t_stack			*init_stack_b(void);
 t_stack			*init_stack_a(char **args, int i);
 void			print_stack(t_stack *stack, char name);

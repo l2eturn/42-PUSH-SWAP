@@ -27,7 +27,7 @@ SRCSB			=	ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c ft_lstlas
 
 OBJS = ${SRCS:.c=.o}
 OBJSB = ${SRCSB:.c=.o}
-NAME = libft_gnl.a
+NAME = libft.a
 LIBC = ar rcs
 CC = cc
 RM = rm -f
