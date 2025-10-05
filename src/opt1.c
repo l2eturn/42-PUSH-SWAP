@@ -23,7 +23,6 @@ void	sa(t_stack *a)
 	first = a->top;
 	second = a->top->next;
 	tmp = second -> next;
-
 	first -> next = tmp;
 	if (second -> next)
 		tmp->prev = first;
@@ -47,7 +46,6 @@ void	sb(t_stack *b)
 	first = b->top;
 	second = b->top->next;
 	tmp = second -> next;
-
 	first -> next = tmp;
 	if (second -> next)
 		tmp->prev = first;

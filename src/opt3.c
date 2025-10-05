@@ -12,4 +12,16 @@
 
 #include "pushswap.h"
 
-//ra/rb/rr
+void	ra(t_list *a)
+{
+
+}
+void	rb(t_list *b)
+{
+
+}
+
+void	rr(t_list *a, t_list *b)
+{
+	
+}

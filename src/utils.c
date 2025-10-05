@@ -23,8 +23,8 @@ int	ft_check(t_stack *stack, char *nbr, int value)
 	while (nbr[i])
 	{
 		if (!(((nbr[i] == '-' || nbr[i] == '+') && ft_isdigit(nbr[i + 1])
-				&& (i == 0 || !ft_isdigit(nbr[i - 1])) )
-			|| ft_isdigit(nbr[i])))
+					&& (i == 0 || !ft_isdigit(nbr[i - 1])))
+				|| ft_isdigit(nbr[i])))
 			return (0);
 		i++;
 	}

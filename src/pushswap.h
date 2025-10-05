@@ -10,12 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef	PUSHSWAP_H
-# define	PUSHSWAP_H
-# include	"../libft/libft.h"
-# include 	<limits.h>
+#ifndef PUSHSWAP_H
+# define PUSHSWAP_H
+# include "../libft/libft.h"
+# include <limits.h>
 //---------------------------------------------------------------
-typedef struct	s_node
+typedef struct s_node
 {
 	int				value;
 	int				index;
@@ -23,7 +23,7 @@ typedef struct	s_node
 	struct s_node	*prev;
 }				t_node;
 
-typedef	struct	s_stack
+typedef struct s_stack
 {
 	t_node		*top;
 	t_node		*bottom;
@@ -42,5 +42,8 @@ void			sb(t_stack *b);
 void			ss(t_stack *a, t_stack *b);
 void			pa(t_stack *a, t_stack *b);
 void			pb(t_stack *a, t_stack *b);
+void			ra(t_list *a);
+void			rb(t_list *b);
+void			rr(t_list *a, t_list *b);
 //---------------------------------------------------------------
-# endif
+#endif

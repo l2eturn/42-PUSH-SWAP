@@ -25,7 +25,6 @@ void	pa(t_stack *a, t_stack *b)
 	else
 		b->bottom = NULL;
 	b->size--;
-
 	first_node_b -> next = a->top;
 	if (a->top)
 		a->top->prev = first_node_b;
@@ -33,7 +32,7 @@ void	pa(t_stack *a, t_stack *b)
 		a->bottom = first_node_b;
 	a->top = first_node_b;
 	a->size++;
-	ft_putstr_fd("pa\n", 1);	
+	ft_putstr_fd("pa\n", 1);
 }
 
 void	pb(t_stack *a, t_stack *b)
@@ -49,7 +48,6 @@ void	pb(t_stack *a, t_stack *b)
 	else
 		a->bottom = NULL;
 	a->size--;
-
 	first_node_a -> next = b->top;
 	if (b->top)
 		b->top->prev = first_node_a;
@@ -57,5 +55,5 @@ void	pb(t_stack *a, t_stack *b)
 		b->bottom = first_node_a;
 	b->top = first_node_a;
 	b->size++;
-	ft_putstr_fd("pb\n", 1);	
+	ft_putstr_fd("pb\n", 1);
 }
