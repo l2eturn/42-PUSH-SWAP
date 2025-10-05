@@ -12,7 +12,6 @@
 
 #include "pushswap.h"
 
-//pa/pb
 void	pa(t_stack *a, t_stack *b)
 {
 	t_node	*first_node_b;
