@@ -19,6 +19,11 @@ typedef struct s_node
 {
 	int				value;
 	int				index;
+	int				keep;
+	int				cost_a;
+	int				cost_b;
+	int				total_cost;
+	struct s_node	*target;
 	struct s_node	*next;
 	struct s_node	*prev;
 }				t_node;
