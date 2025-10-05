@@ -12,16 +12,40 @@
 
 #include "pushswap.h"
 
-void	ra(t_list *a)
+void	ra(t_stack *a)
 {
+	t_node *first;
 
+	if (a->size < 2)
+		return ;
+	first = a -> top;
+	a->top = first->next;
+	a->top->prev = NULL;
+	a->bottom->next = first;
+	first->prev = a->bottom;
+	first->next = NULL;
+	a->bottom = first;
+	ft_putstr_fd("ra\n", 1);
 }
-void	rb(t_list *b)
+void	rb(t_stack *b)
 {
+	t_node *first;
 
+	if (b->size < 2)
+		return ;
+	first = b -> top;
+	b->top = first->next;
+	b->top->prev = NULL;
+	b->bottom->next = first;
+	first->prev = b->bottom;
+	first->next = NULL;
+	b->bottom = first;
+	ft_putstr_fd("rb\n", 1);
 }
 
 void	rr(t_list *a, t_list *b)
 {
-	
+	ra(a);
+	rb(b);
+	ft_putstr_fd("rr\n", 1);
 }
