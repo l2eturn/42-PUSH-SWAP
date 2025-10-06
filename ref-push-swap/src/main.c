@@ -130,8 +130,8 @@ int	main(int ac, char **av)
 	final_rotation(stack_a);
 	free(lis);
 //---------------------------------------------------------------	
-	print_stack(stack_a, 'A');
-	print_stack(stack_b, 'B');
+	//print_stack(stack_a, 'A');
+	//print_stack(stack_b, 'B');
 	free_stack(stack_a);
 	free_stack(stack_b);
 //---------------------------------------------------------------	

@@ -30,5 +30,6 @@ void	final_rotation(t_stack *a);
 t_node	*find_target_position(t_stack *a, int b_index);
 int	get_position_in_stack(t_stack *stack, t_node *node);
 int	find_min_position(t_stack *a);
+int	find_in_chunk_position(t_stack *a, int chunk_start, int chunk_end);
 //---------------------------------------------------------------
 #endif

@@ -1,0 +1,6 @@
+ARG=$(seq 1 500 | shuf)
+./push_swap $ARG | tee ops.txt | ./checker_linux $ARG
+
+
+
+cat ops.txt | wc -l

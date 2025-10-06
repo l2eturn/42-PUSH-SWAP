@@ -108,18 +108,30 @@ int	in_chunk(int index, int chunk_start, int chunk_end)
 // push element ออกจาก a ไป b ตาม chunk
 void	push_chunk_to_b(t_stack *a, t_stack *b, int chunk_start, int chunk_end)
 {
-	int	size = a->size;
-	int	i = 0;
+	int	pos;
+	//int	size;
 
-	while (i < size)
+	//size = a->size;
+	while (1)
 	{
-		if (!in_chunk(a->top->index, chunk_start, chunk_end))
-			ra(a); // หมุนหา element ใน chunk
+		pos = find_in_chunk_position(a, chunk_start, chunk_end);
+		if (pos == -1)
+			break; // ไม่มี element ใน chunk เหลือ
+		if (pos <= a->size / 2)
+		{
+			while (pos-- > 0)
+				ra(a);
+		}
 		else
-			pb(a, b); // push ไป b
-		i++;
+		{
+			pos = a->size - pos;
+			while (pos-- > 0)
+				rra(a);
+		}
+		pb(a, b);
 	}
 }
+
 
 // push ทั้งหมด (ยกเว้น LIS) แบบ chunked
 // void	push_all_except_lis_chunked(t_stack *a, t_stack *b, int *lis, int lis_size)
@@ -138,13 +150,13 @@ void	push_all_except_lis_chunked(t_stack *a, t_stack *b)
 		chunk_count = 11;
 
 	chunk_size = total / chunk_count;
-
 	chunk_start = 0;
+
 	for (i = 0; i < chunk_count; i++)
 	{
-		chunk_end = chunk_start + chunk_size;
+		chunk_end = chunk_start + chunk_size - 1;
 		if (i == chunk_count - 1)
-			chunk_end = total;
+			chunk_end = total - 1; // chunk สุดท้ายอาจใหญ่กว่า
 		push_chunk_to_b(a, b, chunk_start, chunk_end);
 		chunk_start = chunk_end + 1;
 	}
@@ -371,4 +383,19 @@ int	find_min_position(t_stack *a)
 		i++;
 	}
 	return (pos);
+}
+
+int	find_in_chunk_position(t_stack *a, int chunk_start, int chunk_end)
+{
+	t_node *tmp = a->top;
+	int	pos = 0;
+
+	while (tmp)
+	{
+		if (tmp->index >= chunk_start && tmp->index <= chunk_end)
+			return (pos);
+		tmp = tmp->next;
+		pos++;
+	}
+	return (-1); // ไม่เจอ element ใน chunk
 }
