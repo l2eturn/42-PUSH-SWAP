@@ -125,7 +125,7 @@ int	main(int ac, char **av)
 	stack_b = init_stack_b();
 	index_stack(stack_a);
 	lis = find_lis(stack_a, &lis_size);
-	push_all_except_lis_chunked(stack_a, stack_b);
+	push_all_except_lis_chunked(stack_a, stack_b,lis,lis_size);
 	push_back_greedy(stack_a, stack_b);
 	final_rotation(stack_a);
 	free(lis);

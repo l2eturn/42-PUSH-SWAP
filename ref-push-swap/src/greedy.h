@@ -16,20 +16,29 @@
 # include "pushswap.h"
 # include <limits.h>
 //---------------------------------------------------------------
+// ======================= greedy utils =======================
 void	index_stack(t_stack *a);
-int	*find_lis(t_stack *a, int *lis_size);
-int	in_lis(int *lis, int lis_size, int index);
-int	in_chunk(int index, int chunk_start, int chunk_end);
+int		*find_lis(t_stack *a, int *lis_size);
+int		in_lis(int *lis, int lis_size, int index);
+
+// ======================= push_except_lis =======================
+int		in_chunk(int index, int chunk_start, int chunk_end);
 void	push_chunk_to_b(t_stack *a, t_stack *b, int chunk_start, int chunk_end);
-void	push_all_except_lis_chunked(t_stack *a, t_stack *b);
+void	push_all_except_lis_chunked(t_stack *a, t_stack *b, int *lis, int lis_size);
+
+// ======================= cost =======================
 void	calculate_cost(t_stack *a, t_stack *b);
 t_node	*find_cheapest(t_stack *b);
+t_node	*find_target_position(t_stack *a, int b_index);
+int		get_position_in_stack(t_stack *stack, t_node *node);
+
+// ======================= rotation =======================
 void	do_rotation(t_stack *a, t_stack *b, t_node *cheapest);
 void	push_back_greedy(t_stack *a, t_stack *b);
+
+// ======================= finalize =======================
+int		find_min_position(t_stack *a);
 void	final_rotation(t_stack *a);
-t_node	*find_target_position(t_stack *a, int b_index);
-int	get_position_in_stack(t_stack *stack, t_node *node);
-int	find_min_position(t_stack *a);
-int	find_in_chunk_position(t_stack *a, int chunk_start, int chunk_end);
+
 //---------------------------------------------------------------
 #endif
