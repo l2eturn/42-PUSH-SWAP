@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   greedy.h                                           :+:      :+:    :+:   */
+/*   quick_sort.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: slimvutt <slimvut@fpgij;dgj;ds.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/06 03:18:37 by slimvutt          #+#    #+#             */
-/*   Updated: 2025/10/06 03:18:37 by slimvutt         ###   ########.fr       */
+/*   Created: 2025/10/07 04:34:12 by slimvutt          #+#    #+#             */
+/*   Updated: 2025/10/07 04:34:12 by slimvutt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GREEDY_H
-# define GREEDY_H
+#ifndef QUCK_SORT_H
+# define QUCK_SORT_H
 # include "../libft/libft.h"
 # include "pushswap.h"
 # include <limits.h>
