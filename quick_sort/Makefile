@@ -26,8 +26,8 @@ SRCS =	src/main.c\
 		src/opt4.c\
 		src/utils.c\
 		src/quick_sort_utils.c\
+		src/quick_sort.c\
 		libft/libft.a\
-
 $(NAME) : 
 	make bonus -C libft
 	cc $(CFLAGS) $(SRCS) -o $(NAME)
