@@ -6,7 +6,7 @@
 /*   By: slimvutt <slimvutt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 18:54:35 by slimvutt          #+#    #+#             */
-/*   Updated: 2025/10/07 20:06:40 by slimvutt         ###   ########.fr       */
+/*   Updated: 2025/10/07 20:31:48 by slimvutt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	bubble_sort_arr(int *arr, int len)
 	}
 }
 
-int	pivot(t_stack *stack, int len)
+int	find_pivot(t_stack *stack, int len)
 {
 	int		*arr;
 	t_node	*pt;
