@@ -12,7 +12,7 @@
 
 #include "pushswap.h"
 
-void	pb_and_ra(t_stack *a, t_stack *b, int len);
+//void	pb_and_ra(t_stack *a, t_stack *b, int len);
 
 
 void	quick_sort_a(t_stack *a, t_stack *b, int len)

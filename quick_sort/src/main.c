@@ -92,13 +92,15 @@ int	main(int ac, char **av)
 	stack_a = init_stack_a(args, i);
 	stack_b = init_stack_b();
 //---------------------------------------------------------------	
-	int size;
-	if (stack_a != NULL)
-	{
-		size = stack_size(stack_a);
-		printf("%d\n",size);
+	//int size;
+	//if (stack_a != NULL)
+	//{
+	//	size = stack_size(stack_a);
+	//	printf("%d\n",size);
 
-	}
+	//}
+	quick_sort_a(stack_a, stack_b, stack_size(stack_a));
+//---------------------------------------------------------------	
 	print_stack(stack_a, 'A');
 	print_stack(stack_b, 'B');
 	free_stack(stack_a);
