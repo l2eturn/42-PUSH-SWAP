@@ -1,0 +1,8 @@
+{
+	"files.associations": {
+		"limits.h": "c",
+		"libft.h": "c",
+		"pushswap.h": "c",
+		"quick_sort.h": "c"
+	}
+}

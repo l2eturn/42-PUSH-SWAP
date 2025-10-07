@@ -50,4 +50,6 @@ void			rrb(t_stack *b);
 void			rrr(t_stack *a, t_stack *b);
 //---------------------------------------------------------------
 void			print_stack(t_stack *stack, char name);
+int				stack_size(t_stack *s);
+//---------------------------------------------------------------
 #endif
