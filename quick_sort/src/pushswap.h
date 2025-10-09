@@ -44,7 +44,16 @@ typedef struct s_chunk
 	int			med_val;
 	int			max_val;
 	int			size;
+	t_location	location;
 }				t_chunk;
+
+typedef struct s_split_chunks
+{
+	t_chunk	min;
+	t_chunk	mid;
+	t_chunk	max;
+}				t_split_chunks;
+
 //---------------------------------------------------------------
 int				ft_check(t_stack *stack, char *nbr, int value);
 void			free_stack(t_stack *stack);
