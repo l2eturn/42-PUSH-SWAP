@@ -29,6 +29,22 @@ typedef struct s_stack
 	t_node		*bottom;
 	int			size;
 }				t_stack;
+
+typedef enum e_location
+{
+	TOP_A,
+	BOTTOM_A,
+	TOP_B,
+	BOTTOM_B
+}			t_location;
+
+typedef struct s_chunk
+{
+	int			min_val;
+	int			med_val;
+	int			max_val;
+	int			size;
+}				t_chunk;
 //---------------------------------------------------------------
 int				ft_check(t_stack *stack, char *nbr, int value);
 void			free_stack(t_stack *stack);
