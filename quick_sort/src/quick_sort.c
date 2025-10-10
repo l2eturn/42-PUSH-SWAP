@@ -55,8 +55,8 @@ void	split_chunk(t_chunk *arr)
 	int		lft;
 	int		rgt;
 	int		pivot;
-	int		lft_vals[arr -> size];
-	int		rgt_vals[arr -> size];
+	int		*lft_vals;
+	int		*rgt_vals;
 	int		x[1];
 
 	i = 0;
