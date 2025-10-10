@@ -33,7 +33,6 @@ typedef struct s_stack
 typedef enum e_location
 {
 	TOP_A,
-	BOTTOM_A,
 	TOP_B,
 	BOTTOM_B
 }			t_location;
@@ -47,6 +46,7 @@ typedef struct s_chunk
 	int			size;
 	t_location	location;
 	struct s_chunks		*left;
+	struct s_chunks		*mid;
 	struct s_chunks		*right;
 }				t_chunk;
 
@@ -84,5 +84,9 @@ int				find_pivot(t_stack *stack, int len);
 int				*fill_arr(t_stack *stack, int len);
 void			bubble_sort_arr(int *arr, int len);
 void			quick_sort_a(t_stack *a, t_stack *b, int len);
+//---------------------------------------------------------------
+void			rescursive_quick_sort(t_chunk *arr);
+void			split_chunk(t_chunk *arr);
+t_chunk			*create_chunk(int *values, int size, t_location loc);
 //---------------------------------------------------------------
 #endif
