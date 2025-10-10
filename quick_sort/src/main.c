@@ -92,9 +92,11 @@ int	main(int ac, char **av)
 	stack_a = init_stack_a(args, i);
 	stack_b = init_stack_b();
 //---------------------------------------------------------------	
+	int x;
 	if (stack_a != NULL)
-		quick_sort_a(stack_a, stack_b, stack_size(stack_a));
+		x = find_pivot(stack_a, stack_a -> size);
 //---------------------------------------------------------------	
+	printf("%d",x);
 	free_stack(stack_a);
 	free_stack(stack_b);
 //---------------------------------------------------------------	
