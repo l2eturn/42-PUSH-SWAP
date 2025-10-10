@@ -31,7 +31,7 @@ t_chunk	*create_chunk(int *values, int size, t_location loc)
 	t_chunk	*chunk;
 	int		i;
 	int		*val;
-
+	
 	i = 0;
 	chunk = malloc(sizeof(t_chunk));
 	chunk -> values = malloc(sizeof(int) * size); 
@@ -47,34 +47,57 @@ t_chunk	*create_chunk(int *values, int size, t_location loc)
 	chunk->right = NULL;
 	return	(chunk);
 }
-//chunk = create_chunk(arr -> values, arr -> size, arr -> location);
-void	split_chunk(t_chunk *arr)
+
+void	helper_for_fill(t_chunk *arr,int *lft_vals, int *rgt_vals, int *mid_vals)
 {
-	t_chunk	*chunk;
-	int		i;
-	int		lft;
-	int		rgt;
-	int		pivot;
-	int		*lft_vals;
-	int		*rgt_vals;
-	int		x[1];
+	int	lft;
+	int	rgt;
+	int	i;
 
 	i = 0;
 	lft = 0;
 	rgt = 0;
-	pivot = get_pivot();
-	x[0] = pivot;
-	while (i++ < arr -> size)
+	while (i < arr -> size)
 	{
-		if (chunk -> values[i] < pivot)
-			lft_vals[lft++] = chunk -> values[i];
-		else if (chunk -> values[i] > pivot)
-			rgt_vals[rgt++] = chunk -> values[i];
+		if (arr -> values[i] < mid_vals[0])
+			lft ++;
+		else if (arr -> values[i] > mid_vals[0])
+			rgt ++;
+		i ++;
 	}
 	arr->left = create_chunk(lft_vals, lft, TOP_A);
 	arr->right = create_chunk(rgt_vals, rgt, BOTTOM_B);
-	arr->mid = create_chunk(x, 1, TOP_B);
-	return (chunk);
+	arr->mid = create_chunk(mid_vals, 1, TOP_B);
+	free(lft_vals);
+	free(rgt_vals);
+	free(mid_vals);
+}
+
+void	split_chunk(t_chunk *arr)
+{
+	int		i;
+	int		lft;
+	int		rgt;
+	int		*lft_vals;
+	int		*rgt_vals;
+	int		*mid_vals;
+
+	i = 0;
+	lft = 0;
+	rgt = 0;
+	lft_vals = malloc(sizeof(int) * arr -> size);
+	rgt_vals = malloc(sizeof(int) * arr -> size);
+	mid_vals = malloc(sizeof(int));
+	mid_vals[0] = get_pivot(arr->values, arr->size);
+	while (i < arr -> size)
+	{
+		if (arr -> values[i] < mid_vals[0])
+			lft_vals[lft++] = arr -> values[i];
+		else if (arr -> values[i] > mid_vals[0])
+			rgt_vals[rgt++] = arr -> values[i];
+		i ++;
+	}
+	helper_for_fill(arr, lft_vals, rgt_vals, mid_vals);
 }
 
 void	rescursive_quick_sort(t_chunk *arr)
