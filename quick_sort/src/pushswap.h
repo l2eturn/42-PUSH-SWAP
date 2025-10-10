@@ -88,5 +88,7 @@ void			quick_sort_a(t_stack *a, t_stack *b, int len);
 void			rescursive_quick_sort(t_chunk *arr);
 void			split_chunk(t_chunk *arr);
 t_chunk			*create_chunk(int *values, int size, t_location loc);
+void			helper_for_fill(t_chunk *arr,int *lft_vals, int *rgt_vals, int *mid_vals);
+int				free_vals(int *lft_vals,int *rgt_vals,int *mid_vals);
 //---------------------------------------------------------------
 #endif
