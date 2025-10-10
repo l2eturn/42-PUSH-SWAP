@@ -160,7 +160,7 @@ void	split_chunk(t_chunk *arr)
 	helper_for_fill(arr, lft_vals, rgt_vals, mid_vals);
 }
 
-void	rescursive_quick_sort(t_chunk *arr)
+void	recursive_quick_sort(t_chunk *arr)
 {
 	if (arr -> size <= 3)
 	{
@@ -168,7 +168,7 @@ void	rescursive_quick_sort(t_chunk *arr)
 		return ;
 	}
 	split_chunk(arr);
-	rescursive_quick_sort(arr -> left);
-	rescursive_quick_sort(arr -> mid);
-	rescursive_quick_sort(arr -> right);
+	recursive_quick_sort(arr -> left);
+	recursive_quick_sort(arr -> mid);
+	recursive_quick_sort(arr -> right);
 }
