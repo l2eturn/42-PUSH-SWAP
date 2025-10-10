@@ -64,7 +64,7 @@ void	split_chunk(t_chunk *arr)
 	rgt = 0;
 	pivot = get_pivot();
 	x[0] = pivot;
-	while (i++ < chunk -> size)
+	while (i++ < arr -> size)
 	{
 		if (chunk -> values[i] < pivot)
 			lft_vals[lft++] = chunk -> values[i];
@@ -72,8 +72,9 @@ void	split_chunk(t_chunk *arr)
 			rgt_vals[rgt++] = chunk -> values[i];
 	}
 	arr->left = create_chunk(lft_vals, lft, TOP_A);
-	arr->mid = create_chunk(x, 1, TOP_B);
 	arr->right = create_chunk(rgt_vals, rgt, BOTTOM_B);
+	arr->mid = create_chunk(x, 1, TOP_B);
+	return (chunk);
 }
 
 void	rescursive_quick_sort(t_chunk *arr)

@@ -45,9 +45,9 @@ typedef struct s_chunk
 	int			max_val;
 	int			size;
 	t_location	location;
-	struct s_chunks		*left;
-	struct s_chunks		*mid;
-	struct s_chunks		*right;
+	struct s_chunk		*left;
+	struct s_chunk		*mid;
+	struct s_chunk		*right;
 }				t_chunk;
 
 //typedef struct s_split_chunks
