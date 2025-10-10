@@ -74,11 +74,20 @@ int	helper_for_helper(t_chunk *lst1, t_chunk *lst2, t_chunk *lst3)
 	if (!lst1 || !lst2 || !lst3)
 	{
 		if (lst1)
-			free(lst1->values), free(lst1);
+		{
+			free(lst1->values);
+			free(lst1);
+		}
 		if (lst2)
-			free(lst2->values), free(lst2);
+		{
+			free(lst2->values);
+			free(lst2);
+		}
 		if (lst3)
-			free(lst3->values), free(lst3);
+		{
+			free(lst3->values);
+			free(lst3);
+		}
 		return (1);
 	}
 	return (0);
@@ -111,7 +120,7 @@ void	helper_for_fill(t_chunk *arr,int *lft_vals, int *rgt_vals, int *mid_vals)
 	arr->left = create_chunk(lft_vals, lft, TOP_A);
 	arr->right = create_chunk(rgt_vals, rgt, BOTTOM_B);
 	arr->mid = create_chunk(mid_vals, 1, TOP_B);
-	if (helper_for_helper(arr->left, arr->right, arr->mid))
+	if (helper_for_helper(arr->left, arr->mid, arr->right))
 	{
 		help_for_free(lft_vals, rgt_vals, mid_vals);
 		return ;
