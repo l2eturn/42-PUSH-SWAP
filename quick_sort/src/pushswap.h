@@ -40,19 +40,22 @@ typedef enum e_location
 
 typedef struct s_chunk
 {
+	int			*values;
 	int			min_val;
 	int			med_val;
 	int			max_val;
 	int			size;
 	t_location	location;
+	struct s_chunks		*left;
+	struct s_chunks		*right;
 }				t_chunk;
 
-typedef struct s_split_chunks
-{
-	t_chunk	min;
-	t_chunk	mid;
-	t_chunk	max;
-}				t_split_chunks;
+//typedef struct s_split_chunks
+//{
+//	t_chunk	min;
+//	t_chunk	mid;
+//	t_chunk	max;
+//}				t_split_chunks;
 
 //---------------------------------------------------------------
 int				ft_check(t_stack *stack, char *nbr, int value);
