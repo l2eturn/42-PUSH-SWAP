@@ -12,6 +12,18 @@
 
 #include "pushswap.h"
 
-//void	pb_and_ra(t_stack *a, t_stack *b, int len);
+//recursive_chunk_sort(chunk)
+//│
+//├── base_case? (size <= 3)
+//│     └── ใช้ simple_sort() แล้ว return
+//│
+//├── split_chunk(chunk, &splits)
+//│     ├── ส่ง max → TOP_A
+//│     ├── ส่ง mid → TOP_B
+//│     └── ส่ง min → BOTTOM_B
+//│
+//├── recursive_chunk_sort(&splits.max)
+//├── recursive_chunk_sort(&splits.mid)
+//└── recursive_chunk_sort(&splits.min)
 
 
