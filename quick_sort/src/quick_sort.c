@@ -26,6 +26,20 @@
 //├── recursive_chunk_sort(&splits.mid)
 //└── recursive_chunk_sort(&splits.min)
 
+void free_chunk(t_chunk *chunk)
+{
+	if (!chunk)
+		return ;
+	if (chunk->left)
+		free_chunk(chunk->left);
+	if (chunk->mid)
+		free_chunk(chunk->mid);
+	if (chunk->right)
+		free_chunk(chunk->right);
+	free(chunk->values);
+	free(chunk);
+}
+
 t_chunk	*create_chunk(int *values, int size, t_location loc)
 {
 	t_chunk	*chunk;
@@ -50,26 +64,24 @@ t_chunk	*create_chunk(int *values, int size, t_location loc)
 	chunk->size = size;
 	chunk->location = loc;
 	chunk->left = NULL;
-	chunk-> mid = NULL;
+	chunk->mid = NULL;
 	chunk->right = NULL;
 	return	(chunk);
 }
 
 int	helper_for_helper(t_chunk *lst1, t_chunk *lst2, t_chunk *lst3)
 {
-	if (!lst1)
-		return (1);
-	if (!lst2)
+	if (!lst1 || !lst2 || !lst3)
 	{
-		free(lst2);
+		if (lst1)
+			free(lst1->values), free(lst1);
+		if (lst2)
+			free(lst2->values), free(lst2);
+		if (lst3)
+			free(lst3->values), free(lst3);
 		return (1);
 	}
-	if (!lst3)
-	{
-		free(lst1);
-		free(lst2);
-		return (1);
-	}
+	return (0);
 }
 
 void	help_for_free(int *lft_vals, int *rgt_vals, int *mid_vals)
