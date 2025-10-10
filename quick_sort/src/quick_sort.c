@@ -54,6 +54,7 @@ t_chunk	*create_chunk(int *values, int size, t_location loc)
 	chunk->right = NULL;
 	return	(chunk);
 }
+
 int	helper_for_helper(t_chunk *lst1, t_chunk *lst2, t_chunk *lst3)
 {
 	if (!lst1)
@@ -70,6 +71,14 @@ int	helper_for_helper(t_chunk *lst1, t_chunk *lst2, t_chunk *lst3)
 		return (1);
 	}
 }
+
+void	help_for_free(int *lft_vals, int *rgt_vals, int *mid_vals)
+{
+	free(lft_vals);
+	free(mid_vals);
+	free(rgt_vals);
+}
+
 void	helper_for_fill(t_chunk *arr,int *lft_vals, int *rgt_vals, int *mid_vals)
 {
 	int	lft;
@@ -91,11 +100,13 @@ void	helper_for_fill(t_chunk *arr,int *lft_vals, int *rgt_vals, int *mid_vals)
 	arr->right = create_chunk(rgt_vals, rgt, BOTTOM_B);
 	arr->mid = create_chunk(mid_vals, 1, TOP_B);
 	if (helper_for_helper(arr->left, arr->right, arr->mid))
+	{
+		help_for_free(lft_vals, rgt_vals, mid_vals);
 		return ;
-	free(lft_vals);
-	free(rgt_vals);
-	free(mid_vals);
+	}
+	help_for_free(lft_vals, rgt_vals, mid_vals);
 }
+
 int	free_vals(int *lft_vals,int *rgt_vals,int *mid_vals)
 {
 	if ((lft_vals == NULL) || (rgt_vals == NULL) || (mid_vals == NULL))
