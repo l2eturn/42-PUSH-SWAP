@@ -44,7 +44,6 @@ t_chunk	*create_chunk(int *values, int size, t_location loc)
 {
 	t_chunk	*chunk;
 	int		i;
-	int		*val;
 	
 	chunk = malloc(sizeof(t_chunk));
 	if (!chunk)
@@ -173,7 +172,12 @@ void	recursive_quick_sort(t_chunk *arr)
 {
 	if (arr -> size <= 3)
 	{
-		//opt_small(arr);
+		if ((arr -> size == 0) || (arr -> size == 1))
+			return ;
+		else if (arr -> size == 2)
+			opt_small(arr -> values);
+		else if ((arr -> size == 3))
+			chunk_sort(arr -> values);
 		return ;
 	}
 	split_chunk(arr);

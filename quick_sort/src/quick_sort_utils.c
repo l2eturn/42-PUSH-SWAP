@@ -6,7 +6,7 @@
 /*   By: slimvutt <slimvut@fpgij;dgj;ds.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 18:54:35 by slimvutt          #+#    #+#             */
-/*   Updated: 2025/10/10 20:06:58 by slimvutt         ###   ########.fr       */
+/*   Updated: 2025/10/11 07:33:36 by slimvutt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,23 +26,25 @@ int	stack_size(t_stack *stack)
 	}
 	return (size);
 }
-int	*fill_arr(t_stack *stack, int len)
-{
-	t_node	*pt;
-	int 	*arr;
-	int		i;
 
-	i = 0;
-	pt = stack -> top;
-	arr = malloc(sizeof(int) * len);
-	while (i < len)
-	{
-		arr[i] = pt -> value;
-		pt = pt -> next;
-		i ++;
-	}
-	return (arr);
-}
+//int	*fill_arr(t_stack *stack, int len)
+//{
+//	t_node	*pt;
+//	int 	*arr;
+//	int		i;
+
+//	i = 0;
+//	pt = stack -> top;
+//	arr = malloc(sizeof(int) * len);
+//	while (i < len)
+//	{
+//		arr[i] = pt -> value;
+//		pt = pt -> next;
+//		i ++;
+//	}
+//	return (arr);
+//}
+
 void	bubble_sort_arr(int *arr, int len)
 {
 	int		i;
@@ -67,14 +69,12 @@ void	bubble_sort_arr(int *arr, int len)
 	}
 }
 
-int	find_pivot(t_stack *stack, int len)
+int	find_pivot(int *arr, int size)
 {
-	int		*arr;
 	int		pivot;
 
-	arr = fill_arr(stack, len);
-	bubble_sort_arr(arr, len);
-	pivot = arr[len/2];
+	bubble_sort_arr(arr, size);
+	pivot = arr[size/2];
 	free(arr);
 	return (pivot);
 }
