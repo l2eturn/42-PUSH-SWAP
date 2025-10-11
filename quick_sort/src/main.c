@@ -101,6 +101,8 @@ int	main(int ac, char **av)
 //---------------------------------------------------------------	
 	free_stack(stack_a);
 	free_stack(stack_b);
+	free_chunk(root);
+	free(vals);
 //---------------------------------------------------------------	
 }
 		//print_stack(stack_a, 'A');
