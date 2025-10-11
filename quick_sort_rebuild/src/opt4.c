@@ -12,39 +12,35 @@
 
 #include "pushswap.h"
 
-void	rra(t_stack *a)
+static void	reverse_rotate(t_list **stack)
 {
-	t_node	*last;
+	t_list	*tmp;
+	t_list	*bot;
 
-	if (a -> size < 2)
+	if (!(*stack) || !((*stack)->next))
 		return ;
-	last = a->bottom;
-	a->bottom = last->prev;
-	a->bottom->next = NULL;
-	last->prev = NULL;
-	last->next = a->top;
-	a->top->prev = last;
-	a->top = last;
+	tmp = *stack;//10 20 30
+	bot = ft_lstlast(*stack);//30
+	while ((*stack)->next->next)
+		*stack = (*stack)->next;//at 20	
+	bot->next = tmp;//30 10 20 30
+	(*stack)->next = NULL; //30 10 20
+	*stack = bot;
+}
+
+void	rra(t_list **a)
+{
+	reverse_rotate(a);
 	ft_putstr_fd("rra\n", 1);
 }
 
-void	rrb(t_stack *b)
+void	rrb(t_list **b)
 {
-	t_node	*last;
-
-	if (b -> size < 2)
-		return ;
-	last = b->bottom;
-	b->bottom = last->prev;
-	b->bottom->next = NULL;
-	last->prev = NULL;
-	last->next = b->top;
-	b->top->prev = last;
-	b->top = last;
+	reverse_rotate(b);
 	ft_putstr_fd("rrb\n", 1);
 }
 
-void	rrr(t_stack *a, t_stack *b)
+void	rrr(t_list **a, t_list **b)
 {
 	rra(a);
 	rrb(b);

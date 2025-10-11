@@ -12,15 +12,27 @@
 
 #include "pushswap.h"
 
+static void	rotate(t_list **stack)
+{
+	t_list	*top;
+
+	top = *stack;
+	if (!(*stack) || !((*stack)->next))
+		return ;
+	*stack = top->next;
+	top -> next = NULL;
+	ft_lstlast(*stack)->next = top;
+}
+
 void	ra(t_list **a)
 {
-	
+	rotate(a);
 	ft_putstr_fd("ra\n", 1);
 }
 
 void	rb(t_list **b)
 {
-
+	rotate(b);
 	ft_putstr_fd("rb\n", 1);
 }
 
