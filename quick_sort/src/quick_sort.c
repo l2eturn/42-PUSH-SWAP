@@ -168,20 +168,71 @@ void	split_chunk(t_chunk *arr)
 	helper_for_fill(arr, lft_vals, rgt_vals, mid_vals);
 }
 
-void	recursive_quick_sort(t_chunk *arr)
+void	sa_rra(t_stack *a)
+{
+	sa(a);
+	rra(a);
+}
+
+void	sa_ra(t_stack *a)
+{
+	sa(a);
+	ra(a);
+}
+
+void	sort_small_a(t_chunk *arr, t_stack *a)
+{
+	int	*val;
+
+	val = arr -> values;
+	if (arr -> size == 2)
+	{
+		if (val[0] > val[1])
+			sa(a);
+	}
+	else if (arr -> size == 3)
+	{
+		if (val[0] > val[1] && val[1] < val[2] && val[0] < val[2])
+			sa(a);
+		else if (val[0] > val[1] && val[1] > val[2])
+			sa_rra(a);
+		else if (val[0] > val[1] && val[1] < val[2] && val[0] > val[2])
+			ra(a);
+		else if (val[0] < val[1] && val[1] > val[2] && val[0] < val[2])
+			sa_ra(a);
+		else if (val[0] < val[1] && val[1] > val[2] && val[0] > val[2])
+			rra(a);
+	}
+}
+
+void	sort_small_b(t_chunk *arr, t_stack *b)
+{
+
+}
+void	sort_small_botb(t_chunk *arr, t_stack *b)
+{
+
+}
+
+void	sort_small(t_chunk *arr, t_stack *a, t_stack *b)
+{
+	if (arr -> location == TOP_A)
+		sort_small_a(arr, a);
+	else if (arr -> location == TOP_B)
+		sort_small_b(arr, b);
+	else if (arr -> location == BOTTOM_B)
+		sort_small_botb(arr, b);
+}
+
+void	recursive_quick_sort(t_chunk *arr, t_stack *a, t_stack *b)
 {
 	if (arr -> size <= 3)
 	{
-		if ((arr -> size == 0) || (arr -> size == 1))
-			return ;
-		else if (arr -> size == 2)
-			opt_small(arr -> values);
-		else if ((arr -> size == 3))
-			chunk_sort(arr -> values);
+		sort_small(arr -> values, a ,b);
 		return ;
 	}
 	split_chunk(arr);
-	recursive_quick_sort(arr -> left);
-	recursive_quick_sort(arr -> mid);
-	recursive_quick_sort(arr -> right);
+	recursive_quick_sort(arr -> left, a, b);
+	recursive_quick_sort(arr -> mid, a, b);
+	recursive_quick_sort(arr -> right, a, b);
 }

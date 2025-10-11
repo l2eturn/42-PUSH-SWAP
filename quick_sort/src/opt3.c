@@ -44,9 +44,39 @@ void	rb(t_stack *b)
 	ft_putstr_fd("rb\n", 1);
 }
 
+static void rr_ra(t_stack *a)
+{
+	t_node	*first;
+
+	if (a->size < 2)
+		return ;
+	first = a -> top;
+	a->top = first->next;
+	a->top->prev = NULL;
+	a->bottom->next = first;
+	first->prev = a->bottom;
+	first->next = NULL;
+	a->bottom = first;
+}
+
+static void rr_rb(t_stack *b)
+{
+	t_node	*first;
+
+	if (b->size < 2)
+		return ;
+	first = b -> top;
+	b->top = first->next;
+	b->top->prev = NULL;
+	b->bottom->next = first;
+	first->prev = b->bottom;
+	first->next = NULL;
+	b->bottom = first;
+}
+
 void	rr(t_stack *a, t_stack *b)
 {
-	ra(a);
-	rb(b);
+	rr_ra(a);
+	rr_rb(b);
 	ft_putstr_fd("rr\n", 1);
 }

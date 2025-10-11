@@ -6,7 +6,7 @@
 /*   By: slimvutt <slimvut@fpgij;dgj;ds.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 18:54:35 by slimvutt          #+#    #+#             */
-/*   Updated: 2025/10/11 07:33:36 by slimvutt         ###   ########.fr       */
+/*   Updated: 2025/10/11 07:41:11 by slimvutt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,23 +27,23 @@ int	stack_size(t_stack *stack)
 	return (size);
 }
 
-//int	*fill_arr(t_stack *stack, int len)
-//{
-//	t_node	*pt;
-//	int 	*arr;
-//	int		i;
+int	*fill_arr(t_stack *stack, int len)
+{
+	t_node	*pt;
+	int 	*arr;
+	int		i;
 
-//	i = 0;
-//	pt = stack -> top;
-//	arr = malloc(sizeof(int) * len);
-//	while (i < len)
-//	{
-//		arr[i] = pt -> value;
-//		pt = pt -> next;
-//		i ++;
-//	}
-//	return (arr);
-//}
+	i = 0;
+	pt = stack -> top;
+	arr = malloc(sizeof(int) * len);
+	while (i < len)
+	{
+		arr[i] = pt -> value;
+		pt = pt -> next;
+		i ++;
+	}
+	return (arr);
+}
 
 void	bubble_sort_arr(int *arr, int len)
 {
