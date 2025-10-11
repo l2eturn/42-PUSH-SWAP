@@ -29,7 +29,7 @@ int	check(t_list *lst, int n, char *nbr)
 	}
 	while (tmp)
 	{
-		if (tmp->content == n)
+		if (tmp->cnt == n)
 			return (0);
 		tmp = tmp->next;
 	}
@@ -43,7 +43,7 @@ void	idx_replace(t_list *lst, int min, int i)
 	tmp = lst;
 	while (tmp)
 	{
-		if (tmp -> index == -1 && tmp ->content == min)
+		if (tmp -> index == -1 && tmp ->cnt == min)
 			break;
 		tmp = tmp -> next;
 	}
@@ -59,8 +59,8 @@ int	ft_min(t_list *lst)
 	tmp = lst;
 	while (tmp)
 	{
-		if (tmp -> index == -1 && tmp -> content < min)
-			min = tmp->content;
+		if (tmp -> index == -1 && tmp -> cnt < min)
+			min = tmp->cnt;
 		tmp = tmp -> next;
 	}
 	return (min);

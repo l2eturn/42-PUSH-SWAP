@@ -20,6 +20,7 @@ typedef struct s_list
 {
 	size_t			content_size;
 	void			*content;
+	int				cnt;
 	int				flag;
 	int				index;
 	struct s_list	*next;
@@ -61,7 +62,7 @@ void			*ft_calloc(size_t nmemb, size_t size);
 size_t			ft_strlcpy(char *dest, const char *src, size_t size);
 char			**ft_split(char const *s, char c);
 //----------------------------------------------------------------
-t_list			*ft_lstnew(void *content);
+t_list			*ft_lstnew(int content);
 void			ft_lstadd_front(t_list **lst, t_list *new);
 int				ft_lstsize(t_list *lst);
 t_list			*ft_lstlast(t_list *lst);

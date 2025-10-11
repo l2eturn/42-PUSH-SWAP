@@ -19,7 +19,7 @@ int	is_rev_sort(t_list *stack)
 	tmp = stack;
 	while (tmp -> next)
 	{
-		if (tmp -> content < tmp -> next -> content)
+		if (tmp -> cnt < tmp -> next -> cnt)
 			return (0);
 		tmp = tmp -> next;
 	}
@@ -33,7 +33,7 @@ int	is_already_sort(t_list *stack)
 	tmp = stack;
 	while (tmp && tmp->next)
 	{
-		if (tmp -> content > tmp -> next -> content)
+		if (tmp -> cnt > tmp -> next -> cnt)
 			return (0);
 		tmp = tmp -> next;
 	}
@@ -42,7 +42,21 @@ int	is_already_sort(t_list *stack)
 //---------------------------------------------------------------
 void	sort_chunk_of_five(t_stack *lst)
 {
+	int	len;
 
+	len = ft_lstsize(lst->stack_a);
+	while (len--)
+	{
+		if ((lst->stack_a->index == 0 )|| (lst->stack_a->index == 1))
+			pb(&(lst->stack_a), &(lst->stack_b));
+		else
+			ra(&(lst->stack_a));
+	}
+	sort_chunk_of_three(lst);
+	pa(&(lst->stack_a), &(lst->stack_b));
+	pa(&(lst->stack_a), &(lst->stack_b));
+	if (lst->stack_a->cnt > lst->stack_a->next->cnt)
+		sa(&(lst->stack_a));
 }
 //end---------------------------------------------------------------
 
@@ -59,20 +73,20 @@ void	sort_chunk_of_three(t_stack *lst)
 		sa(&(lst->stack_a));
 		rra(&(lst->stack_a));
 	}
-	else if (lst->stack_a->content < last->content
-		&& lst->stack_a->next->content < last->content)
+	else if (lst->stack_a->cnt < last->cnt
+		&& lst->stack_a->next->cnt < last->cnt)
 		sa(&(lst->stack_a));
-	else if (lst->stack_a->content > last->content
-		&& lst->stack_a->next->content < last->content)
+	else if (lst->stack_a->cnt > last->cnt
+		&& lst->stack_a->next->cnt < last->cnt)
 		ra(&(lst->stack_a));
-	else if (lst->stack_a->content < last->content
-		&& lst->stack_a->next->content > last->content)
+	else if (lst->stack_a->cnt < last->cnt
+		&& lst->stack_a->next->cnt > last->cnt)
 	{
 		sa(&(lst->stack_a));
 		ra(&(lst->stack_a));
 	}
-	else if (lst->stack_a->content > last->content
-		&& lst->stack_a->next->content > last->content)
+	else if (lst->stack_a->cnt > last->cnt
+		&& lst->stack_a->next->cnt > last->cnt)
 		rra(&(lst->stack_a));
 }
 //| Case | Pattern (top → bottom) | Action   | ผลลัพธ์ |
@@ -88,12 +102,12 @@ void	do_sort(t_stack *node)
 {
 	int	len;
 
-	len = ft_lstsize(node);
+	len = ft_lstsize(node->stack_a);
 	if (is_already_sort((node->stack_a)))
 		return ;
 	if (len == 2)
 	{
-		if (node->stack_a->content > node->stack_a->next->content)
+		if (node->stack_a->cnt > node->stack_a->next->cnt)
 			sa(&(node->stack_a));
 	}
 	else if (len == 3)
@@ -101,5 +115,4 @@ void	do_sort(t_stack *node)
 	else if (len == 5)
 		sort_chunk_of_five(node);
 	//else
-
 }

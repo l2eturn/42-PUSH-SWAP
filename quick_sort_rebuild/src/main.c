@@ -12,7 +12,7 @@
 
 #include "pushswap.h"
 
-t_stack	*init_stack(char **av, int ac)
+t_list	*init_stack(char **av, int ac)
 {
 	t_list	*tmp;
 	t_list	*res;
@@ -48,18 +48,19 @@ int	main(int ac, char **av)
 	args = av;
 	if (ac == 1)
 		return (0);
+	stack = malloc(sizeof(t_stack));
 	if (ac == 2)
 		args = ft_split(av[1], ' ');
 	else
 		args = av;
-	stack->stack_a = ft_init(args, ac);
+	stack->stack_a = init_stack(args, ac);
 	if (stack->stack_a == NULL)
 		return (-1);
 	stack->stack_b = NULL;
 	stack->asize = ft_lstsize(stack->stack_a);
 	stack->bsize = ft_lstsize(stack->stack_b);
 	assign_index(stack->stack_a);
-//---------------------------------------------------------------	
+	do_sort(stack);
 //---------------------------------------------------------------	
 }
 
