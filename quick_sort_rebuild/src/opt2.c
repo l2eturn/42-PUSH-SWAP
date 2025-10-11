@@ -19,6 +19,7 @@ void	pa(t_list **a, t_list **b)
 	if (!(*b))
 		return ;
 	below = (*b)->next;
+	(*b)->next = *a;
 	*a = *b;
 	*b = below;
 	ft_putstr_fd("pa\n", 1);
@@ -31,6 +32,7 @@ void	pb(t_list **a, t_list **b)
 	if (!(*a))
 		return ;
 	below = (*a)->next;
+	(*a)->next = *b;
 	*b = *a;
 	*a = below;
 	ft_putstr_fd("pb\n", 1);

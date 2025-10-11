@@ -47,17 +47,18 @@ void	sort_chunk_of_five(t_stack *lst)
 	len = ft_lstsize(lst->stack_a);
 	while (len--)
 	{
-		if ((lst->stack_a->index == 0 )|| (lst->stack_a->index == 1))
-			pb(&(lst->stack_a), &(lst->stack_b));
+		if (lst->stack_a->index == 0 || lst->stack_a->index == 1)
+			pb(&lst->stack_a, &lst->stack_b);
 		else
-			ra(&(lst->stack_a));
+			ra(&lst->stack_a);
 	}
 	sort_chunk_of_three(lst);
-	pa(&(lst->stack_a), &(lst->stack_b));
-	pa(&(lst->stack_a), &(lst->stack_b));
+	pa(&lst->stack_a, &lst->stack_b);
+	pa(&lst->stack_a, &lst->stack_b);
 	if (lst->stack_a->cnt > lst->stack_a->next->cnt)
-		sa(&(lst->stack_a));
+		sa(&lst->stack_a);
 }
+
 //end---------------------------------------------------------------
 
 //---------------------------------------------------------------

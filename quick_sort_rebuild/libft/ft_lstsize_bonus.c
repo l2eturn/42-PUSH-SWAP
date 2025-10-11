@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: slimvutt <slimvutt@student.42.fr>          +#+  +:+       +#+        */
+/*   By: slimvutt <slimvut@fpgij;dgj;ds.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/30 22:57:11 by slimvutt          #+#    #+#             */
-/*   Updated: 2025/08/30 23:26:18 by slimvutt         ###   ########.fr       */
+/*   Updated: 2025/10/12 01:10:18 by slimvutt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ int	ft_lstsize(t_list *lst)
 	count = 0;
 	while (tmp)
 	{
-		tmp = tmp -> next;
 		count ++;
+		tmp = tmp -> next;
 	}
 	return (count);
 }
