@@ -39,7 +39,6 @@ void			idx_replace(t_list *lst, int min, int i);
 int				ft_min(t_list *lst);
 void			assign_index(t_list *lst);
 t_list			*init_stack(char **av, int ac);
-void			free_stack(t_stack *stack);
 //---------------------------------------------------------------
 
 //quick_sort---------------------------------------------------------------
@@ -53,6 +52,11 @@ void			sort_chunk_of_five(t_stack *lst);
 int				is_already_sort(t_list *stack);
 int				is_rev_sort(t_list *stack);
 
+//---------------------------------------------------------------
+
+//free---------------------------------------------------------------
+void			free_stack(t_list *stack);
+void			free_all(t_stack *stack, char **args, int ac);
 //---------------------------------------------------------------
 
 //operate---------------------------------------------------------------
@@ -69,8 +73,4 @@ void			rra(t_list **b);
 void			rrr(t_list **a, t_list **b);
 //---------------------------------------------------------------
 
-//etc---------------------------------------------------------------
-void			print_stack(t_stack *stack, char name);
-void			free_init_a_if_error(t_stack *stack);
-//---------------------------------------------------------------
 #endif
