@@ -80,7 +80,7 @@ void			rrr(t_stack *a, t_stack *b);
 void			print_stack(t_stack *stack, char name);
 //---------------------------------------------------------------
 int				stack_size(t_stack *s);
-int				find_pivot(t_stack *stack, int len);
+int				find_pivot(int *arr, int len);
 int				*fill_arr(t_stack *stack, int len);
 void			bubble_sort_arr(int *arr, int len);
 void			quick_sort_a(t_stack *a, t_stack *b, int len);
