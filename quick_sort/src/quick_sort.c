@@ -156,7 +156,7 @@ void	split_chunk(t_chunk *arr)
 	mid_vals = malloc(sizeof(int));
 	if ((free_vals(lft_vals, rgt_vals, mid_vals)))
 		return ;
-	mid_vals[0] = get_pivot(arr->values, arr->size);
+	mid_vals[0] = find_pivot(arr->values, arr->size);
 	while (i < arr -> size)
 	{
 		if (arr -> values[i] < mid_vals[0])
