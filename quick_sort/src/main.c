@@ -79,7 +79,9 @@ int	main(int ac, char **av)
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 	char	**args;
+	t_chunk	*root;
 	int		i;
+	int		*vals;
 
 	i = 0;
 	args = av;
@@ -91,12 +93,12 @@ int	main(int ac, char **av)
 		i = 1;
 	stack_a = init_stack_a(args, i);
 	stack_b = init_stack_b();
+	vals = fill_arr(stack_a, stack_a->size);
+	root = create_chunk(vals, stack_a->size, TOP_A);
 //---------------------------------------------------------------	
-	int x;
 	if (stack_a != NULL)
-		x = find_pivot(stack_a, stack_a -> size);
+		recursive_quick_sort(root, stack_a, stack_b);
 //---------------------------------------------------------------	
-	printf("%d",x);
 	free_stack(stack_a);
 	free_stack(stack_b);
 //---------------------------------------------------------------	

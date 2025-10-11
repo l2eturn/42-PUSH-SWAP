@@ -85,12 +85,17 @@ int				*fill_arr(t_stack *stack, int len);
 void			bubble_sort_arr(int *arr, int len);
 void			quick_sort_a(t_stack *a, t_stack *b, int len);
 //---------------------------------------------------------------
-void			rescursive_quick_sort(t_chunk *arr);
+void			recursive_quick_sort(t_chunk *arr, t_stack *a, t_stack *b);
 void			split_chunk(t_chunk *arr);
 t_chunk			*create_chunk(int *values, int size, t_location loc);
 void			helper_for_fill(t_chunk *arr,int *lft_vals, int *rgt_vals, int *mid_vals);
 int				free_vals(int *lft_vals,int *rgt_vals,int *mid_vals);
 void			help_for_free(int *lft_vals, int *rgt_vals, int *mid_vals);
 void 			free_chunk(t_chunk *chunk);
+//---------------------------------------------------------------
+void			sort_small(t_chunk *arr, t_stack *a, t_stack *b);
+void			sort_small_botb(t_chunk *arr, t_stack *a, t_stack *b);
+void			sort_small_b(t_chunk *arr,t_stack *a, t_stack *b);
+void			sort_small_a(t_chunk *arr, t_stack *a);
 //---------------------------------------------------------------
 #endif

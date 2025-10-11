@@ -167,18 +167,20 @@ void	split_chunk(t_chunk *arr)
 	}
 	helper_for_fill(arr, lft_vals, rgt_vals, mid_vals);
 }
+//helper for sort_small_a---------------------------------------------------------------
 
-void	sa_rra(t_stack *a)
+static void	sa_rra(t_stack *a)
 {
 	sa(a);
 	rra(a);
 }
 
-void	sa_ra(t_stack *a)
+static void	sa_ra(t_stack *a)
 {
 	sa(a);
 	ra(a);
 }
+//---------------------------------------------------------------
 
 void	sort_small_a(t_chunk *arr, t_stack *a)
 {
@@ -204,14 +206,88 @@ void	sort_small_a(t_chunk *arr, t_stack *a)
 			rra(a);
 	}
 }
+//helper for sort_small_b---------------------------------------------------------------
 
-void	sort_small_b(t_chunk *arr, t_stack *b)
+static void	sb_rrb(t_stack *b)
 {
-
+	sb(b);
+	rrb(b);
 }
-void	sort_small_botb(t_chunk *arr, t_stack *b)
-{
 
+static void	sb_rb(t_stack *b)
+{
+	sb(b);
+	rb(b);
+}
+//---------------------------------------------------------------
+
+void	sort_small_b(t_chunk *arr,t_stack *a, t_stack *b)
+{
+	int	*val;
+
+	val = arr->values;
+	if (arr->size == 1)
+		pa(a, b);
+	else if (arr->size == 2)
+	{
+		if (val[0] < val[1])
+			sb(b);
+		pa(a, b);
+		pa(a, b);
+	}
+	else if (arr->size == 3)
+	{
+		if (val[0] < val[1] && val[1] > val[2] && val[0] > val[2])
+			rb(b);
+		else if (val[0] < val[1] && val[1] > val[2] && val[0] < val[2])
+			sb_rb(b);
+		else if (val[0] > val[1] && val[1] < val[2] && val[0] < val[2])
+			rrb(b);
+		else if (val[0] > val[1] && val[1] < val[2] && val[0] > val[2])
+			sb(b);
+		else if (val[0] > val[1] && val[1] > val[2])
+			sb_rrb(b);
+		while (b->size > 0)
+			pa(a, b);
+	}
+}
+void	sort_small_botb(t_chunk *arr, t_stack *a, t_stack *b)
+{
+	int	*val;
+
+	val = arr->values;
+	if (arr->size == 1)
+	{
+		pa(a, b);
+		ra(a);
+	}
+	else if (arr->size == 2)
+	{
+		if (val[0] < val[1])
+			sb(b);
+		pa(a, b);
+		ra(a);
+		pa(a, b);
+		ra(a);
+	}
+	else if (arr->size == 3)
+	{
+		if (val[0] < val[1] && val[1] > val[2] && val[0] > val[2])
+			rb(b);
+		else if (val[0] < val[1] && val[1] > val[2] && val[0] < val[2])
+			sb_rb(b);
+		else if (val[0] > val[1] && val[1] < val[2] && val[0] < val[2])
+			rrb(b);
+		else if (val[0] > val[1] && val[1] < val[2] && val[0] > val[2])
+			sb(b);
+		else if (val[0] > val[1] && val[1] > val[2])
+			sb_rrb(b);
+		while (arr->size--)
+		{
+			pa(a, b);
+			ra(a);
+		}
+	}
 }
 
 void	sort_small(t_chunk *arr, t_stack *a, t_stack *b)
@@ -219,20 +295,36 @@ void	sort_small(t_chunk *arr, t_stack *a, t_stack *b)
 	if (arr -> location == TOP_A)
 		sort_small_a(arr, a);
 	else if (arr -> location == TOP_B)
-		sort_small_b(arr, b);
+		sort_small_b(arr, a, b);
 	else if (arr -> location == BOTTOM_B)
-		sort_small_botb(arr, b);
+		sort_small_botb(arr, a, b);
 }
 
 void	recursive_quick_sort(t_chunk *arr, t_stack *a, t_stack *b)
 {
-	if (arr -> size <= 3)
+	if (arr->size <= 3)
 	{
-		sort_small(arr -> values, a ,b);
+		if (arr->location == TOP_A)
+			sort_small_a(arr, a);
+		else if (arr->location == TOP_B)
+		{
+			sort_small_b(arr, a, b);
+			while (arr->size--)
+				pa(a, b);
+		}
+		else if (arr->location == BOTTOM_B)
+		{
+			sort_small_b(arr, a, b);
+			while (arr->size--)
+			{
+				pa(a, b);
+				ra(a);
+			}
+		}
 		return ;
 	}
 	split_chunk(arr);
-	recursive_quick_sort(arr -> left, a, b);
-	recursive_quick_sort(arr -> mid, a, b);
-	recursive_quick_sort(arr -> right, a, b);
+	recursive_quick_sort(arr->left, a, b);
+	recursive_quick_sort(arr->mid, a, b);
+	recursive_quick_sort(arr->right, a, b);
 }
