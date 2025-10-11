@@ -46,8 +46,12 @@ void			free_stack(t_stack *stack);
 
 //---------------------------------------------------------------
 
-//quick_utils---------------------------------------------------------------
-void			is_sort(t_stack *node);
+//first_chunk---------------------------------------------------------------
+void			do_sort(t_stack *node);
+void			sort_chunk_of_three(t_stack *lst);
+void			sort_chunk_of_five(t_stack *lst);
+int				is_already_sort(t_list *stack);
+int				is_rev_sort(t_stack *stack);
 
 //---------------------------------------------------------------
 
