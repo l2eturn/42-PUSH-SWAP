@@ -1,6 +1,7 @@
 {
 	"files.associations": {
 		"libft.h": "c",
-		"limits.h": "c"
+		"limits.h": "c",
+		"pushswap.h": "c"
 	}
 }
