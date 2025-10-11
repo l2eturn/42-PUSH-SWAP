@@ -12,48 +12,26 @@
 
 #include "pushswap.h"
 
-void	pa(t_stack *a, t_stack *b)
+void	pa(t_list **a, t_list **b)
 {
-	t_node	*first_node_b;
+	t_list *below;
 
-	if (b -> size == 0)
+	if (!(*b))
 		return ;
-	first_node_b = b->top;
-	b->top = first_node_b->next;
-	if (b->top)
-		b->top->prev = NULL;
-	else
-		b->bottom = NULL;
-	b->size--;
-	first_node_b -> next = a->top;
-	if (a->top)
-		a->top->prev = first_node_b;
-	else
-		a->bottom = first_node_b;
-	a->top = first_node_b;
-	a->size++;
+	below = (*b)->next;
+	*a = *b;
+	*b = below;
 	ft_putstr_fd("pa\n", 1);
 }
 
-void	pb(t_stack *a, t_stack *b)
+void	pb(t_list **a, t_list **b)
 {
-	t_node	*first_node_a;
+	t_list *below;
 
-	if (a -> size == 0)
+	if (!(*a))
 		return ;
-	first_node_a = a->top;
-	a->top = first_node_a->next;
-	if (a->top)
-		a->top->prev = NULL;
-	else
-		a->bottom = NULL;
-	a->size--;
-	first_node_a -> next = b->top;
-	if (b->top)
-		b->top->prev = first_node_a;
-	else
-		b->bottom = first_node_a;
-	b->top = first_node_a;
-	b->size++;
+	below = (*a)->next;
+	*b = *a;
+	*a = below;
 	ft_putstr_fd("pb\n", 1);
 }

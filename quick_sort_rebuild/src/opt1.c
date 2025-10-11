@@ -12,57 +12,35 @@
 
 #include "pushswap.h"
 
-void	sa(t_stack *a)
+static void swap(t_list **stack)
 {
-	t_node	*first;
-	t_node	*second;
-	t_node	*tmp;
+	t_list	*tmp;
 
-	if (a->size < 2)
+	if (!(*stack) || !((*stack)->next))
 		return ;
-	first = a->top;
-	second = a->top->next;
-	tmp = second -> next;
-	first -> next = tmp;
-	if (second -> next)
-		tmp->prev = first;
-	else
-		a -> bottom = first;
-	second -> next = first;
-	second -> prev = NULL;
-	first -> prev = second;
-	a -> top = second;
+	tmp = *stack;
+	*stack = (*stack)->next;
+	tmp->next = (*stack)->next;
+	(*stack)->next = tmp;
+}
+
+void	sa(t_list **a)
+{
+	swap(a);
 	ft_putstr_fd("sa\n", 1);
 }
 
-void	sb(t_stack *b)
+void	sb(t_list **b)
 {
-	t_node	*first;
-	t_node	*second;
-	t_node	*tmp;
-
-	if (b->size < 2)
-		return ;
-	first = b->top;
-	second = b->top->next;
-	tmp = second -> next;
-	first -> next = tmp;
-	if (second -> next)
-		tmp->prev = first;
-	else
-		b -> bottom = first;
-	second -> next = first;
-	second -> prev = NULL;
-	first -> prev = second;
-	b -> top = second;
-	ft_putstr_fd("sb", 1);
+	swap(b);
+	ft_putstr_fd("sb\n", 1);
 }
 
-void	ss(t_stack *a, t_stack *b)
+void	ss(t_list **a, t_list **b)
 {
 	sa(a);
 	sb(b);
-	ft_putstr_fd("ss", 1);
+	ft_putstr_fd("ss\n", 1);
 }
 
 //sa/sb/ss

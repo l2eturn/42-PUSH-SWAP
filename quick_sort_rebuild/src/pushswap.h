@@ -48,17 +48,11 @@ void			free_stack(t_stack *stack);
 //---------------------------------------------------------------
 
 //operate---------------------------------------------------------------
-void			sa(t_stack *a);
-void			sb(t_stack *b);
-void			ss(t_stack *a, t_stack *b);
-void			pa(t_stack *a, t_stack *b);
-void			pb(t_stack *a, t_stack *b);
-void			ra(t_stack *a);
-void			rb(t_stack *b);
-void			rr(t_stack *a, t_stack *b);
-void			rra(t_stack *a);
-void			rrb(t_stack *b);
-void			rrr(t_stack *a, t_stack *b);
+void			sa(t_list **a);
+void			sb(t_list **b);
+void			ss(t_list **a, t_list **b);
+void			pa(t_list **a, t_list **b);
+void			pb(t_list **a, t_list **b);
 //---------------------------------------------------------------
 
 //etc---------------------------------------------------------------
