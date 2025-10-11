@@ -50,13 +50,6 @@ typedef struct s_chunk
 	struct s_chunk		*right;
 }				t_chunk;
 
-//typedef struct s_split_chunks
-//{
-//	t_chunk	min;
-//	t_chunk	mid;
-//	t_chunk	max;
-//}				t_split_chunks;
-
 //---------------------------------------------------------------
 int				ft_check(t_stack *stack, char *nbr, int value);
 void			free_stack(t_stack *stack);
@@ -92,6 +85,7 @@ void			helper_for_fill(t_chunk *arr,int *lft_vals, int *rgt_vals, int *mid_vals)
 int				free_vals(int *lft_vals,int *rgt_vals,int *mid_vals);
 void			help_for_free(int *lft_vals, int *rgt_vals, int *mid_vals);
 void 			free_chunk(t_chunk *chunk);
+t_chunk			*create_chunk(int *values, int size, t_location loc);
 //---------------------------------------------------------------
 void			sort_small(t_chunk *arr, t_stack *a, t_stack *b);
 void			sort_small_botb(t_chunk *arr, t_stack *a, t_stack *b);
