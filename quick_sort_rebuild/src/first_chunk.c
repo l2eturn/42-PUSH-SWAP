@@ -73,21 +73,21 @@ void	sort_chunk_of_three(t_stack *lst)
 		sa(&(lst->stack_a));
 		rra(&(lst->stack_a));
 	}
-	else if (lst->stack_a->cnt < last->cnt
-		&& lst->stack_a->next->cnt < last->cnt)
-		sa(&(lst->stack_a));
-	else if (lst->stack_a->cnt > last->cnt
-		&& lst->stack_a->next->cnt < last->cnt)
-		ra(&(lst->stack_a));
-	else if (lst->stack_a->cnt < last->cnt
-		&& lst->stack_a->next->cnt > last->cnt)
+	else if (lst->stack_a->content < last->content
+		&& lst->stack_a->next->content < last->content)
+		sa(&lst->stack_a);
+	else if (lst->stack_a->content > last->content
+		&& lst->stack_a->next->content < last->content)
+		ra(&lst->stack_a);
+	else if (lst->stack_a->content < last->content
+		&& lst->stack_a->next->content > last->content)
 	{
-		sa(&(lst->stack_a));
-		ra(&(lst->stack_a));
+		sa(&lst->stack_a);
+		ra(&lst->stack_a);
 	}
-	else if (lst->stack_a->cnt > last->cnt
-		&& lst->stack_a->next->cnt > last->cnt)
-		rra(&(lst->stack_a));
+	else if (lst->stack_a->content > last->content
+		&& lst->stack_a->next->content > last->content)
+		rra(&lst->stack_a);
 }
 //| Case | Pattern (top → bottom) | Action   | ผลลัพธ์ |
 //| :--: | :--------------------- | :------- | :------ |
