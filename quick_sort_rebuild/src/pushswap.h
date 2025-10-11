@@ -1,0 +1,68 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   pushswap.h                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: slimvutt <slimvut@fpgij;dgj;ds.com>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/04 09:24:01 by slimvutt          #+#    #+#             */
+/*   Updated: 2025/10/04 09:24:01 by slimvutt         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef PUSHSWAP_H
+# define PUSHSWAP_H
+# include "../libft/libft.h"
+# include <limits.h>
+
+//link_list---------------------------------------------------------------
+typedef struct s_push
+{
+	int	next;
+	int	max;
+	int	mid;
+	int	flag;
+}	t_push;
+
+typedef struct s_stack
+{
+	t_list	*stack_a;
+	t_list	*stack_b;
+	int		asize;
+	int		bsize;
+}		t_stack;
+//---------------------------------------------------------------
+
+//assigned_stack---------------------------------------------------------------
+int				check(t_list *lst, int n, char *nbr);
+void			idx_replace(t_list *lst, int min, int i);
+int				ft_min(t_list *lst);
+void			assign_index(t_list *lst);
+t_stack			*init_stack(char **av, int ac);
+void			free_stack(t_stack *stack);
+//---------------------------------------------------------------
+
+//quick_sort---------------------------------------------------------------
+
+
+//---------------------------------------------------------------
+
+//operate---------------------------------------------------------------
+void			sa(t_stack *a);
+void			sb(t_stack *b);
+void			ss(t_stack *a, t_stack *b);
+void			pa(t_stack *a, t_stack *b);
+void			pb(t_stack *a, t_stack *b);
+void			ra(t_stack *a);
+void			rb(t_stack *b);
+void			rr(t_stack *a, t_stack *b);
+void			rra(t_stack *a);
+void			rrb(t_stack *b);
+void			rrr(t_stack *a, t_stack *b);
+//---------------------------------------------------------------
+
+//etc---------------------------------------------------------------
+void			print_stack(t_stack *stack, char name);
+void			free_init_a_if_error(t_stack *stack);
+//---------------------------------------------------------------
+#endif
