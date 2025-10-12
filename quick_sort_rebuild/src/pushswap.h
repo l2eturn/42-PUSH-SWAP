@@ -51,7 +51,6 @@ void			sort_chunk_of_three(t_stack *lst);
 void			sort_chunk_of_five(t_stack *lst);
 int				is_already_sort(t_list *stack);
 int				is_rev_sort(t_list *stack);
-
 //---------------------------------------------------------------
 
 //free---------------------------------------------------------------

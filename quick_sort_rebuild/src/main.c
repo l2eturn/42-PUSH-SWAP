@@ -54,27 +54,28 @@ int	main(int ac, char **av)
 {
 	t_stack	*stack;
 	char	**args;
-	
+
 	args = av;
 	if (ac == 1)
-	return (0);
+		return (0);
 	stack = malloc(sizeof(t_stack));
 	if (ac == 2)
-	args = ft_split(av[1], ' ');
+		args = ft_split(av[1], ' ');
 	else
-	args = av;
+		args = av;
 	stack->stack_a = init_stack(args, ac);
 	if (stack->stack_a == NULL)
-	return (-1);
+		return (-1);
 	stack->stack_b = NULL;
 	stack->asize = ft_lstsize(stack->stack_a);
 	stack->bsize = ft_lstsize(stack->stack_b);
 	assign_index(stack->stack_a);
 	do_sort(stack);
-	print_lst(stack->stack_a);
-	//free_all(stack, args, ac);
-	//---------------------------------------------------------------	
 }
 
+//---------------------------------------------------------------	
 //int x = ft_lstsize(stack->stack_a);
 //printf("%d\n", x);
+
+//print_lst(stack->stack_a);
+//free_all(stack, args, ac);
