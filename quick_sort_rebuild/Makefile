@@ -30,6 +30,8 @@ SRCS =	src/main.c\
 		src/first_chunk.c\
 		libft/libft.a\
 
+SRCS_BONUS = 
+
 $(NAME) : 
 	make bonus -C libft
 	cc $(CFLAGS) $(SRCS) -o $(NAME)
@@ -37,7 +39,7 @@ $(NAME) :
 all : $(NAME)
 
 fclean : clean
-	$(RM) $(NAME)
+	$(RM) $(NAME) checker
 	make fclean -C libft
 
 clean :
@@ -45,3 +47,7 @@ clean :
 	make clean -C libft
 
 re : fclean all
+
+bonus :
+	make bonus -C libft
+	cc $(CFLAGS) $(SRCS_BONUS) -o checker
