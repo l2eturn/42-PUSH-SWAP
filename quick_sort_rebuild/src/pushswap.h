@@ -42,8 +42,18 @@ t_list			*init_stack(char **av, int ac);
 //---------------------------------------------------------------
 
 //quick_sort---------------------------------------------------------------
+void			quick_sort(t_list **stack_a, t_list **stack_b, int size);
 
 //---------------------------------------------------------------
+
+//sort_utils---------------------------------------------------------------
+t_list			*max_in_lst(t_list *stack);
+t_list			*min_in_lst(t_list *stack);
+void			devide_first_chunk(t_list **stack_a, t_list **stack_b,t_push *push, int size);
+int 			is_already_sort_a(t_list *stack,int size);
+
+//---------------------------------------------------------------
+
 
 //first_chunk---------------------------------------------------------------
 void			do_sort(t_stack *node);

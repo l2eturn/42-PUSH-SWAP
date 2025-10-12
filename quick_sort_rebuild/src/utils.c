@@ -81,23 +81,3 @@ void	assign_index(t_list *lst)
 		i ++;
 	}
 }
-
-//void	free_init_a_if_error(t_stack *stack)
-//{
-//	ft_putstr_fd("Error\n", 2);
-//	free_stack(stack);
-//}
-
-//void	free_stack(t_stack *stack)
-//{
-//	t_node	*tmp;
-
-//	while (stack && stack->top)
-//	{
-//		tmp = stack->top->next;
-//		free(stack->top);
-//		stack->top = tmp;
-//	}
-//	free(stack);
-//}
-

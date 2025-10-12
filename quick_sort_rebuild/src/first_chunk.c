@@ -115,5 +115,6 @@ void	do_sort(t_stack *node)
 		sort_chunk_of_three(node);
 	else if (len == 5)
 		sort_chunk_of_five(node);
-	//else
+	else
+		quick_sort(&(node->stack_a), &(node->stack_a), ft_lstsize(node->stack_a));
 }
