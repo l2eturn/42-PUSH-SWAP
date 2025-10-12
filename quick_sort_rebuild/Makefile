@@ -19,7 +19,6 @@ CFLAGS = -g3 -Werror -Wall -Wextra -fsanitize=address
 RM = rm -rf
 
 SRCS =	src/main.c\
-		src/print_stack.c\
 		src/opt1.c\
 		src/opt2.c\
 		src/opt3.c\
