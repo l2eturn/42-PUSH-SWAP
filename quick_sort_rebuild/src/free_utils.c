@@ -12,29 +12,30 @@
 
 #include "pushswap.h"
 
-void	free_stack(t_list *stack)
+void free_list(t_list *lst)
 {
     t_list *tmp;
-    while (stack)
+    while (lst)
     {
-        tmp = stack->next;
-        free(stack);
-        stack = tmp;
+        tmp = lst->next;
+        free(lst);
+        lst = tmp;
     }
 }
 
-void	free_all(t_stack *stack, char **args, int ac)
+void free_stack(t_stack *stack, char **args, int ac)
 {
-	int	j;
+    if (stack->stack_a)
+        free_list(stack->stack_a);
+    if (stack->stack_b)
+        free_list(stack->stack_b);
+    free(stack);
 
-	j = 0;
-	free_stack(stack->stack_a);
-	free_stack(stack->stack_b);
-	if (ac == 2)
-	{
-		while (args[j])
-			free(args[j++]);
-		free(args);
-	}
-	free(stack);
+    if (ac == 2 && args)
+    {
+        int i = 0;
+        while (args[i])
+            free(args[i++]);
+        free(args);
+    }
 }

@@ -52,7 +52,8 @@ void			do_stack_b(t_list **stack_a,t_list **stack_b, t_push *push);
 t_list			*max_in_lst(t_list *stack);
 t_list			*min_in_lst(t_list *stack);
 int 			is_already_sort_a(t_list *stack,int size);
-void			find_next(t_list **stack_a, t_list **stack_b, t_push *push);
+void	find_next(t_list **stack_a, t_list **stack_b, t_push *push);
+//void find_next(t_list **a, t_list **b, t_push *p);
 //---------------------------------------------------------------
 
 //first_chunk---------------------------------------------------------------
@@ -64,8 +65,8 @@ int				is_rev_sort(t_list *stack);
 //---------------------------------------------------------------
 
 //free---------------------------------------------------------------
-void			free_stack(t_list *stack);
-void			free_all(t_stack *stack, char **args, int ac);
+void 		free_stack(t_stack *stack, char **args, int ac);
+void 		free_list(t_list *lst);
 //---------------------------------------------------------------
 
 //operate---------------------------------------------------------------

@@ -18,8 +18,8 @@ void	quick_sort(t_list **stack_a, t_list **stack_b, int size)
 	
 	push.flag = 0;
 	push.next = min_in_lst(*stack_a)->index;
-	push.max = max_in_lst(*stack_b)->index;
-	push.max = (push.max / 2) + (push.next);
+	push.max = max_in_lst(*stack_a)->index;
+	push.mid = (push.max / 2) + (push.next);
 	devide_first_chunk(stack_a, stack_b, &push, size);
 	while (!(is_already_sort_a(*stack_a, size)))
 	{
@@ -34,22 +34,21 @@ void	devide_first_chunk(t_list **stack_a, t_list **stack_b,t_push *push, int siz
 {
 	int	i;
 
-	i = 0;
-	while (i < size)
+	i = -1;
+	while (++i < size)
 	{
 		if ((*stack_a)->index <= push->mid)
 			pb(stack_a, stack_b);
 		else
 		{
-			if ((ft_lstsize(*stack_b) > 1) && ((*stack_b)->index < (push->mid/2)))
+			if (ft_lstsize(*stack_b) > 1 && (*stack_b)->index < (push->mid / 2))
 				rr(stack_a, stack_b);
 			else
 				ra(stack_a);
 		}
-		i ++;
 	}
 	push->max = push->mid;
-	push->mid = ((push->max - push->next) / 2) + (push->next);
+	push->mid = (push->max - push->next) / 2 + push->next;
 	push->flag++;
 }
 void	do_stack_a(t_list **stack_a,t_list **stack_b, t_push *push)
@@ -57,9 +56,9 @@ void	do_stack_a(t_list **stack_a,t_list **stack_b, t_push *push)
 	int	size_b;
 	int	i;
 
-	i = 0;
+	i = -1;
 	size_b = ft_lstsize(*stack_b);
-	while (ft_lstsize(*stack_b) && i < size_b)
+	while (ft_lstsize(*stack_b) && ++i < size_b)
 	{
 		if ((*stack_b)->index == push->next)
 			find_next(stack_a, stack_b, push);
@@ -71,9 +70,9 @@ void	do_stack_a(t_list **stack_a,t_list **stack_b, t_push *push)
 		else if ((*stack_b)->index < push->mid)
 			rb(stack_b);
 	}
-	push->flag++;
 	push->max = push->mid;
 	push->mid = (push->max - push->next) / 2 + push->next;
+	push->flag++;
 }
 
 void	do_stack_b(t_list **stack_a,t_list **stack_b, t_push *push)
@@ -81,7 +80,7 @@ void	do_stack_b(t_list **stack_a,t_list **stack_b, t_push *push)
 	int	curr_flag;
 
 	curr_flag = (*stack_a)->flag;
-	if (((*stack_a)->flag) != 0)
+	if ((*stack_a)->flag != 0)
 	{
 		while ((*stack_a)->flag == curr_flag)
 		{
@@ -90,7 +89,7 @@ void	do_stack_b(t_list **stack_a,t_list **stack_b, t_push *push)
 			find_next(stack_a, stack_b, push);
 		}
 	}
-	else
+	else if ((*stack_a)->flag == 0)
 	{
 		while ((*stack_a)->flag != -1)
 		{

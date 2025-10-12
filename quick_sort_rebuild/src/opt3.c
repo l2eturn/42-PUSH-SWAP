@@ -38,7 +38,7 @@ void	rb(t_list **b)
 
 void	rr(t_list **a, t_list **b)
 {
-	ra(a);
-	rb(b);
+	rotate(a);
+	rotate(b);
 	ft_putstr_fd("rr\n", 1);
 }

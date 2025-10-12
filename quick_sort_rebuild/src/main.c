@@ -61,6 +61,7 @@ int	main(int ac, char **av)
 	stack->bsize = ft_lstsize(stack->stack_b);
 	assign_index(stack->stack_a);
 	do_sort(stack);
+	free_stack(stack, args, ac);
 }
 
 //---------------------------------------------------------------	

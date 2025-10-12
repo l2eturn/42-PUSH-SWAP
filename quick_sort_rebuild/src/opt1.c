@@ -38,8 +38,8 @@ void	sb(t_list **b)
 
 void	ss(t_list **a, t_list **b)
 {
-	sa(a);
-	sb(b);
+	swap(a);
+	swap(b);
 	ft_putstr_fd("ss\n", 1);
 }
 
