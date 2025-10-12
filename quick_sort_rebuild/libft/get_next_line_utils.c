@@ -12,15 +12,15 @@
 
 #include "get_next_line.h"
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*ft_strjoin_gnl(char *s1, char *s2)
 {
 	char		*res;
 	size_t		i;
 	size_t		j;
 	size_t		totlen;
 
-	totlen = ft_strlen(s1) + ft_strlen(s2);
-	res = ft_calloc(sizeof(char), (totlen + 1));
+	totlen = ft_strlen_gnl(s1) + ft_strlen_gnl(s2);
+	res = ft_calloc_gnl(sizeof(char), (totlen + 1));
 	if (!res)
 		return (NULL);
 	i = 0;
@@ -36,7 +36,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	return (res);
 }
 
-int	ft_strchr(char *s, char c)
+int	ft_strchr_gnl(char *s, char c)
 {
 	if (!s)
 		return (0);
@@ -51,7 +51,7 @@ int	ft_strchr(char *s, char c)
 	return (0);
 }
 
-size_t	ft_strlen(char *s)
+size_t	ft_strlen_gnl(char *s)
 {
 	size_t	len;
 
@@ -61,7 +61,7 @@ size_t	ft_strlen(char *s)
 	return (len);
 }
 
-void	*ft_calloc(size_t nmemb, size_t size)
+void	*ft_calloc_gnl(size_t nmemb, size_t size)
 {
 	unsigned char	*p;
 	size_t			i;

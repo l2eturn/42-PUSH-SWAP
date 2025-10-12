@@ -17,11 +17,11 @@ char	*get_store(int fd, char *store)
 	int		byte_count;
 	char	*buff;
 
-	buff = ft_calloc(sizeof(char), (BUFFER_SIZE + 1));
+	buff = ft_calloc_gnl(sizeof(char), (BUFFER_SIZE + 1));
 	if (!buff)
 		return (NULL);
 	byte_count = 1;
-	while (!(ft_strchr(store, '\n')) && byte_count != 0)
+	while (!(ft_strchr_gnl(store, '\n')) && byte_count != 0)
 	{
 		byte_count = read(fd, buff, BUFFER_SIZE);
 		if (byte_count < 0)
@@ -31,7 +31,7 @@ char	*get_store(int fd, char *store)
 			return (NULL);
 		}
 		buff[byte_count] = 0;
-		store = ft_strjoin(store, buff);
+		store = ft_strjoin_gnl(store, buff);
 	}
 	free(buff);
 	return (store);
@@ -47,7 +47,7 @@ char	*get_aline(char *store)
 		return (NULL);
 	while (store[i] && store[i] != '\n')
 		i ++;
-	line = ft_calloc(sizeof(char), (i + 2));
+	line = ft_calloc_gnl(sizeof(char), (i + 2));
 	if (!line)
 		return (NULL);
 	i = 0;
@@ -79,7 +79,7 @@ char	*update_store(char *store)
 		free(store);
 		return (NULL);
 	}
-	upd_store = malloc(sizeof(char) * (ft_strlen(store) - i + 1));
+	upd_store = malloc(sizeof(char) * (ft_strlen_gnl(store) - i + 1));
 	if (!upd_store)
 	{
 		free(upd_store);

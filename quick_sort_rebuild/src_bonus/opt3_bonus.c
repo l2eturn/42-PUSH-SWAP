@@ -27,18 +27,15 @@ static void	rotate(t_list **stack)
 void	ra(t_list **a)
 {
 	rotate(a);
-	ft_putstr_fd("ra\n", 1);
 }
 
 void	rb(t_list **b)
 {
 	rotate(b);
-	ft_putstr_fd("rb\n", 1);
 }
 
 void	rr(t_list **a, t_list **b)
 {
 	rotate(a);
 	rotate(b);
-	ft_putstr_fd("rr\n", 1);
 }

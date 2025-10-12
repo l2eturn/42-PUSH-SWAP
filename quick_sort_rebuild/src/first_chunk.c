@@ -90,14 +90,6 @@ void	sort_chunk_of_three(t_stack *lst)
 		&& lst->stack_a->next->cnt > last->cnt)
 		rra(&lst->stack_a);
 }
-//| Case | Pattern (top → bottom) | Action   | ผลลัพธ์ |
-//| :--: | :--------------------- | :------- | :------ |
-//|   1  | 3 2 1                  | sa + rra | 1 2 3   |
-//|   2  | 2 1 3                  | sa       | 1 2 3   |
-//|   3  | 3 1 2                  | ra       | 1 2 3   |
-//|   4  | 1 3 2                  | sa + ra  | 1 2 3   |
-//|   5  | 2 3 1                  | rra      | 1 2 3   |
-//end---------------------------------------------------------------
 
 void	do_sort(t_stack *node)
 {
@@ -118,3 +110,12 @@ void	do_sort(t_stack *node)
 	else
 		quick_sort(&(node->stack_a), &(node->stack_b), ft_lstsize(node->stack_a));
 }
+
+//| Case | Pattern (top → bottom) | Action   | ผลลัพธ์ |
+//| :--: | :--------------------- | :------- | :------ |
+//|   1  | 3 2 1                  | sa + rra | 1 2 3   |
+//|   2  | 2 1 3                  | sa       | 1 2 3   |
+//|   3  | 3 1 2                  | ra       | 1 2 3   |
+//|   4  | 1 3 2                  | sa + ra  | 1 2 3   |
+//|   5  | 2 3 1                  | rra      | 1 2 3   |
+//end---------------------------------------------------------------

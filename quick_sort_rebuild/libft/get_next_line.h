@@ -28,9 +28,9 @@ char	*get_next_line(int fd);
 char	*get_store(int fd, char *store);
 char	*get_aline(char *store);
 //------------------------------------------------
-void	*ft_calloc(size_t nmemb, size_t size);
-size_t	ft_strlen(char *s);
-int		ft_strchr(char *s, char c);
-char	*ft_strjoin(char *s1, char *s2);
+void	*ft_calloc_gnl(size_t nmemb, size_t size);
+size_t	ft_strlen_gnl(char *s);
+int		ft_strchr_gnl(char *s, char c);
+char	*ft_strjoin_gnl(char *s1, char *s2);
 //------------------------------------------------
 #endif
