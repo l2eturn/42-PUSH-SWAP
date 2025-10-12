@@ -39,22 +39,12 @@ t_list	*init_stack(char **av, int ac)
 	}
 	return (res);
 }
-#include <stdio.h>
-static void print_lst(t_list *lst)
-{
-	while (lst)
-	{
-		printf("val is %d and index is %d\n", lst->cnt, lst->index);
-		lst = lst->next;
-	}
-	printf("\n");
-}
 
 int	main(int ac, char **av)
 {
 	t_stack	*stack;
 	char	**args;
-
+	
 	args = av;
 	if (ac == 1)
 		return (0);
@@ -74,8 +64,17 @@ int	main(int ac, char **av)
 }
 
 //---------------------------------------------------------------	
-//int x = ft_lstsize(stack->stack_a);
-//printf("%d\n", x);
-
-//print_lst(stack->stack_a);
 //free_all(stack, args, ac);
+//---------------------------------------------------------------	
+//print_lst(stack->stack_a);
+//#include <stdio.h>
+//static void print_lst(t_list *lst)
+//{
+//	while (lst)
+//	{
+//		printf("val is %d and index is %d\n", lst->cnt, lst->index);
+//		lst = lst->next;
+//	}
+//	printf("\n");
+//}
+//---------------------------------------------------------------	
