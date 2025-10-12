@@ -66,7 +66,7 @@ int	ft_min(t_list *lst)
 	return (min);
 }
 
-void	assign_index_do_sort(t_stack *stack,t_list *lst)
+void	assign_index(t_list *lst)
 {
 	int	len;
 	int	min;
@@ -80,5 +80,4 @@ void	assign_index_do_sort(t_stack *stack,t_list *lst)
 		idx_replace(lst, min, i);
 		i ++;
 	}
-	do_sort(stack);
 }
