@@ -1,44 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   opt1.c                                             :+:      :+:    :+:   */
+/*   opt3_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: slimvutt <slimvut@fpgij;dgj;ds.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/05 03:49:05 by slimvutt          #+#    #+#             */
-/*   Updated: 2025/10/05 03:49:05 by slimvutt         ###   ########.fr       */
+/*   Created: 2025/10/12 20:39:19 by slimvutt          #+#    #+#             */
+/*   Updated: 2025/10/12 20:39:19 by slimvutt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pushswap.h"
+#include "checker.h"
 
-static void swap(t_list **stack)
+static void	rotate(t_list **stack)
 {
-	t_list	*tmp;
+	t_list	*top;
 
+	top = *stack;
 	if (!(*stack) || !((*stack)->next))
 		return ;
-	tmp = *stack;
-	*stack = (*stack)->next;
-	tmp->next = (*stack)->next;
-	(*stack)->next = tmp;
+	*stack = top->next;
+	top -> next = NULL;
+	ft_lstlast(*stack)->next = top;
 }
 
-void	sa(t_list **a)
+void	ra(t_list **a)
 {
-	swap(a);
-	ft_putstr_fd("sa\n", 1);
+	rotate(a);
+	ft_putstr_fd("ra\n", 1);
 }
 
-void	sb(t_list **b)
+void	rb(t_list **b)
 {
-	swap(b);
-	ft_putstr_fd("sb\n", 1);
+	rotate(b);
+	ft_putstr_fd("rb\n", 1);
 }
 
-void	ss(t_list **a, t_list **b)
+void	rr(t_list **a, t_list **b)
 {
-	swap(a);
-	swap(b);
-	ft_putstr_fd("ss\n", 1);
+	rotate(a);
+	rotate(b);
+	ft_putstr_fd("rr\n", 1);
 }

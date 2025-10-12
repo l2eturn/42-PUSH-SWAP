@@ -30,7 +30,12 @@ SRCS =	src/main.c\
 		src/first_chunk.c\
 		libft/libft.a\
 
-SRCS_BONUS = 
+SRCS_BONUS =	src_bonus/checker_main.c\
+				src_bonus/opt1_bonus.c\
+				src_bonus/opt2_bonus.c\
+				src_bonus/opt3_bonus.c\
+				src_bonus/opt4_bonus.c\
+				libft/libft.a\
 
 $(NAME) : 
 	make bonus -C libft
