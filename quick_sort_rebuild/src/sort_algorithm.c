@@ -34,8 +34,8 @@ void	devide_first_chunk(t_list **stack_a, t_list **stack_b,t_push *push, int siz
 {
 	int	i;
 
-	i = -1;
-	while (++i < size)
+	i = 0;
+	while (i < size)
 	{
 		if ((*stack_a)->index <= push->mid)
 			pb(stack_a, stack_b);
@@ -46,6 +46,7 @@ void	devide_first_chunk(t_list **stack_a, t_list **stack_b,t_push *push, int siz
 			else
 				ra(stack_a);
 		}
+		i ++;
 	}
 	push->max = push->mid;
 	push->mid = (push->max - push->next) / 2 + push->next;
@@ -56,9 +57,9 @@ void	do_stack_a(t_list **stack_a,t_list **stack_b, t_push *push)
 	int	size_b;
 	int	i;
 
-	i = -1;
+	i = 0;
 	size_b = ft_lstsize(*stack_b);
-	while (ft_lstsize(*stack_b) && ++i < size_b)
+	while (ft_lstsize(*stack_b) && i < size_b)
 	{
 		if ((*stack_b)->index == push->next)
 			find_next(stack_a, stack_b, push);
@@ -69,6 +70,7 @@ void	do_stack_a(t_list **stack_a,t_list **stack_b, t_push *push)
 		}
 		else if ((*stack_b)->index < push->mid)
 			rb(stack_b);
+		i ++;
 	}
 	push->max = push->mid;
 	push->mid = (push->max - push->next) / 2 + push->next;
