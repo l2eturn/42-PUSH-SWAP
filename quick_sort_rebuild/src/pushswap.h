@@ -43,17 +43,17 @@ t_list			*init_stack(char **av, int ac);
 
 //quick_sort---------------------------------------------------------------
 void			quick_sort(t_list **stack_a, t_list **stack_b, int size);
-
+void			devide_first_chunk(t_list **stack_a, t_list **stack_b,t_push *push, int size);
+void			do_stack_a(t_list **stack_a,t_list **stack_b, t_push *push);
+void			do_stack_b(t_list **stack_a,t_list **stack_b, t_push *push);
 //---------------------------------------------------------------
 
 //sort_utils---------------------------------------------------------------
 t_list			*max_in_lst(t_list *stack);
 t_list			*min_in_lst(t_list *stack);
-void			devide_first_chunk(t_list **stack_a, t_list **stack_b,t_push *push, int size);
 int 			is_already_sort_a(t_list *stack,int size);
-
+void			find_next(t_list **stack_a, t_list **stack_b, t_push *push);
 //---------------------------------------------------------------
-
 
 //first_chunk---------------------------------------------------------------
 void			do_sort(t_stack *node);
@@ -78,7 +78,7 @@ void			ra(t_list **a);
 void			rb(t_list **b);
 void			rr(t_list **a, t_list **b);
 void			rra(t_list **a);
-void			rra(t_list **b);
+void			rrb(t_list **b);
 void			rrr(t_list **a, t_list **b);
 //---------------------------------------------------------------
 

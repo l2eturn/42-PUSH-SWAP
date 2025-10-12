@@ -26,6 +26,8 @@ SRCS =	src/main.c\
 		src/opt4.c\
 		src/utils.c\
 		src/free_utils.c\
+		src/sort_utils.c\
+		src/sort_algorithm.c\
 		src/first_chunk.c\
 		libft/libft.a\
 
