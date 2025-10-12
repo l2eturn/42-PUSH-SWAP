@@ -12,30 +12,68 @@
 
 #include "pushswap.h"
 
-t_list	*init_stack(char **av, int ac)
-{
-	t_list	*tmp;
-	t_list	*res;
-	int		i;
-	long	nbr;
+//t_list	*init_stack(char **av, int ac)
+//{
+//	t_list	*tmp;
+//	t_list	*res;
+//	int		i;
+//	long	nbr;
 
+//	if (ac == 2)
+//		i = 0;
+//	else
+//		i = 1;
+//	res = NULL;
+//	while (av[i])
+//	{
+//		nbr = ft_atoi(av[i]);
+//		if ((nbr > INT_MAX) || (nbr < INT_MIN) || (check(res, nbr, av[i]) == 0))
+//		{
+//			ft_putstr_fd("Error\n", 2);
+//			return (NULL);
+//		}
+//		tmp = ft_lstnew(nbr);
+//		ft_lstadd_back(&res, tmp);
+//		tmp -> index = -1;
+//		i ++;
+//	}
+//	return (res);
+//}
+static t_list *create_node(t_list *res, char *str)
+{
+	long nbr;
+	t_list *tmp;
+
+	nbr = ft_atoi(str);
+	if (nbr > INT_MAX || nbr < INT_MIN || !check(res, nbr, str))
+		return NULL;
+	tmp = ft_lstnew(nbr);
+	return (tmp);
+}
+
+t_list *init_stack(char **ag, int ac)
+{
+	t_list *res;
+	t_list *tmp;
+	int i;
+
+	res = NULL;
 	if (ac == 2)
 		i = 0;
 	else
 		i = 1;
-	res = NULL;
-	while (av[i])
+	while (ag[i])
 	{
-		nbr = ft_atoi(av[i]);
-		if ((nbr > INT_MAX) || (nbr < INT_MIN) || (check(res, nbr, av[i]) == 0))
+		tmp = create_node(res, ag[i]);
+		if (!tmp)
 		{
+			free_list(res);
 			ft_putstr_fd("Error\n", 2);
-			return (NULL);
+			return NULL;
 		}
-		tmp = ft_lstnew(nbr);
 		ft_lstadd_back(&res, tmp);
-		tmp -> index = -1;
-		i ++;
+		tmp->index = -1;
+		i++;
 	}
 	return (res);
 }
@@ -55,12 +93,17 @@ int	main(int ac, char **av)
 		args = av;
 	stack->stack_a = init_stack(args, ac);
 	if (stack->stack_a == NULL)
+	{
+	{
+		free_list(stack->stack_a);		
+		free(stack);
 		return (-1);
+	}
+	}
 	stack->stack_b = NULL;
 	stack->asize = ft_lstsize(stack->stack_a);
 	stack->bsize = ft_lstsize(stack->stack_b);
-	assign_index(stack->stack_a);
-	do_sort(stack);
+	assign_index_do_sort(stack, stack->stack_a);
 	free_stack(stack, args, ac);
 }
 

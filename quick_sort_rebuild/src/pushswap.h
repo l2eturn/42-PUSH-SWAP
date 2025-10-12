@@ -37,7 +37,7 @@ typedef struct s_stack
 int				check(t_list *lst, int n, char *nbr);
 void			idx_replace(t_list *lst, int min, int i);
 int				ft_min(t_list *lst);
-void			assign_index(t_list *lst);
+void			assign_index_do_sort(t_stack *stack,t_list *lst);
 t_list			*init_stack(char **av, int ac);
 //---------------------------------------------------------------
 
