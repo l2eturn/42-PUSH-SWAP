@@ -12,19 +12,6 @@
 
 #include "checker.h"
 
-int	is_already_sort(t_list *stack)
-{
-	t_list	*tmp;
-
-	tmp = stack;
-	while (tmp && tmp->next)
-	{
-		if (tmp -> cnt > tmp -> next -> cnt)
-			return (0);
-		tmp = tmp -> next;
-	}
-	return (1);
-}
 int	check(t_list *lst, int n, char *nbr)
 {
 	t_list	*tmp;
@@ -49,58 +36,68 @@ int	check(t_list *lst, int n, char *nbr)
 	return (1);
 }
 
-t_list	*init_stack(char **av, int ac)
+static t_list *create_node(t_list *res, char *str)
 {
-	t_list	*tmp;
-	t_list	*res;
-	int		i;
-	long	nbr;
+	long nbr;
+	t_list *tmp;
 
+	nbr = ft_atoi(str);
+	if (nbr > INT_MAX || nbr < INT_MIN || !check(res, nbr, str))
+		return NULL;
+	tmp = ft_lstnew(nbr);
+	return (tmp);
+}
+
+t_list *init_stack(char **ag, int ac)
+{
+	t_list *res;
+	t_list *tmp;
+	int i;
+
+	res = NULL;
 	if (ac == 2)
 		i = 0;
 	else
 		i = 1;
-	res = NULL;
-	while (av[i])
+	while (ag[i])
 	{
-		nbr = ft_atoi(av[i]);
-		if ((nbr > INT_MAX) || (nbr < INT_MIN) || (check(res, nbr, av[i]) == 0))
+		tmp = create_node(res, ag[i]);
+		if (!tmp)
 		{
+			free_list(res);
 			ft_putstr_fd("Error\n", 2);
-			return (NULL);
+			return NULL;
 		}
-		tmp = ft_lstnew(nbr);
 		ft_lstadd_back(&res, tmp);
-		tmp -> index = -1;
-		i ++;
+		tmp->index = -1;
+		i++;
 	}
 	return (res);
 }
 
 void free_list(t_list *lst)
 {
-    t_list *tmp;
-    while (lst)
-    {
-        tmp = lst->next;
-        free(lst);
-        lst = tmp;
-    }
+	t_list *tmp;
+	while (lst)
+	{
+		tmp = lst->next;
+		free(lst);
+		lst = tmp;
+	}
 }
 
 void free_stack(t_stack *stack, char **args, int ac)
 {
-    if (stack->stack_a)
-        free_list(stack->stack_a);
-    if (stack->stack_b)
-        free_list(stack->stack_b);
-    free(stack);
-
-    if (ac == 2 && args)
-    {
-        int i = 0;
-        while (args[i])
-            free(args[i++]);
-        free(args);
-    }
+	if (stack->stack_a)
+		free_list(stack->stack_a);
+	if (stack->stack_b)
+		free_list(stack->stack_b);
+	free(stack);
+	if (ac == 2 && args)
+	{
+		int i = 0;
+		while (args[i])
+			free(args[i++]);
+		free(args);
+	}
 }

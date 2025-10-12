@@ -12,6 +12,20 @@
 
 #include "checker.h"
 
+int	is_already_sort(t_list *stack)
+{
+	t_list	*tmp;
+
+	tmp = stack;
+	while (tmp && tmp->next)
+	{
+		if (tmp -> cnt > tmp -> next -> cnt)
+			return (0);
+		tmp = tmp -> next;
+	}
+	return (1);
+}
+
 int	print_opt(char *opt, t_stack *stack)
 {
 	if (ft_strcmp(opt, "sa\n") == 0)
@@ -72,7 +86,11 @@ int	main(int ac, char **av)
 		args = av;
 	stack->stack_a = init_stack(args, ac);
 	if (stack->stack_a == NULL)
+	{
+		free_list(stack->stack_a);		
+		free(stack);
 		return (-1);
+	}
 	stack->stack_b = NULL;
 	get_operate(stack);
 	if (is_already_sort(stack->stack_a) && !stack->stack_b)
