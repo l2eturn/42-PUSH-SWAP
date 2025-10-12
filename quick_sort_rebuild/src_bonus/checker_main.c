@@ -74,7 +74,7 @@ int	main(int ac, char **av)
 	if (stack->stack_a == NULL)
 		return (-1);
 	stack->stack_b = NULL;
-
+	get_operate(stack);
 	if (is_already_sort(stack->stack_a) && !stack->stack_b)
 		ft_putstr_fd("OK\n", 1);
 	else
