@@ -28,16 +28,16 @@ int	is_already_sort(t_list *stack)
 
 int	print_opt(char *opt, t_stack *stack)
 {
-	if (!(ft_strcmp(opt, "sa\n")) || !(ft_strcmp(opt, "sb\n"))
-		|| !(ft_strcmp(opt, "ss\n")))
+	if ((ft_strcmp(opt, "sa\n") == 0) || ((ft_strcmp(opt, "sb\n") == 0))
+		|| (ft_strcmp(opt, "ss\n") == 0))
 		swap_group(opt, stack);
-	else if (!(ft_strcmp(opt, "pa\n")) || !(ft_strcmp(opt, "pb\n")))
+	else if ((ft_strcmp(opt, "pa\n") == 0) || (ft_strcmp(opt, "pb\n") == 0))
 		push_group(opt, stack);
-	else if (!(ft_strcmp(opt, "ra\n")) || !(ft_strcmp(opt, "rb\n"))
-		|| !(ft_strcmp(opt, "rr\n")))
+	else if ((ft_strcmp(opt, "ra\n") == 0) || (ft_strcmp(opt, "rb\n") == 0)
+		|| (ft_strcmp(opt, "rr\n") == 0))
 		rotate_group(opt, stack);
-	else if (!ft_strcmp(opt, "rra\n") || !ft_strcmp(opt, "rrb\n")
-		|| !ft_strcmp(opt, "rrr\n"))
+	else if ((ft_strcmp(opt, "rra\n") == 0) || (ft_strcmp(opt, "rrb\n") == 0)
+		|| (ft_strcmp(opt, "rrr\n") == 0))
 		reverse_rotate_group(opt, stack);
 	else
 	{
