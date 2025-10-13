@@ -36,23 +36,23 @@ int	check(t_list *lst, int n, char *nbr)
 	return (1);
 }
 
-static t_list *create_node(t_list *res, char *str)
+static t_list	*create_node(t_list *res, char *str)
 {
-	long nbr;
-	t_list *tmp;
+	long	nbr;
+	t_list	*tmp;
 
 	nbr = ft_atoi(str);
 	if (nbr > INT_MAX || nbr < INT_MIN || !check(res, nbr, str))
-		return NULL;
+		return (NULL);
 	tmp = ft_lstnew(nbr);
 	return (tmp);
 }
 
-t_list *init_stack(char **ag, int ac)
+t_list	*init_stack(char **ag, int ac)
 {
-	t_list *res;
-	t_list *tmp;
-	int i;
+	t_list	*res;
+	t_list	*tmp;
+	int		i;
 
 	res = NULL;
 	if (ac == 2)
@@ -66,7 +66,7 @@ t_list *init_stack(char **ag, int ac)
 		{
 			free_list(res);
 			ft_putstr_fd("Error\n", 2);
-			return NULL;
+			return (NULL);
 		}
 		ft_lstadd_back(&res, tmp);
 		tmp->index = -1;
@@ -75,9 +75,10 @@ t_list *init_stack(char **ag, int ac)
 	return (res);
 }
 
-void free_list(t_list *lst)
+void	free_list(t_list *lst)
 {
-	t_list *tmp;
+	t_list	*tmp;
+
 	while (lst)
 	{
 		tmp = lst->next;
@@ -86,8 +87,10 @@ void free_list(t_list *lst)
 	}
 }
 
-void free_stack(t_stack *stack, char **args, int ac)
+void	free_stack(t_stack *stack, char **args, int ac)
 {
+	int	i;
+
 	if (stack->stack_a)
 		free_list(stack->stack_a);
 	if (stack->stack_b)
@@ -95,7 +98,7 @@ void free_stack(t_stack *stack, char **args, int ac)
 	free(stack);
 	if (ac == 2 && args)
 	{
-		int i = 0;
+		i = 0;
 		while (args[i])
 			free(args[i++]);
 		free(args);

@@ -16,7 +16,6 @@
 # include "../libft/get_next_line.h"
 # include <limits.h>
 
-//link_list---------------------------------------------------------------
 typedef struct s_stack
 {
 	t_list	*stack_a;
@@ -24,8 +23,6 @@ typedef struct s_stack
 	int		asize;
 	int		bsize;
 }		t_stack;
-//---------------------------------------------------------------
-//operate---------------------------------------------------------------
 void			sa(t_list **a);
 void			sb(t_list **b);
 void			ss(t_list **a, t_list **b);
@@ -37,19 +34,15 @@ void			rr(t_list **a, t_list **b);
 void			rra(t_list **a);
 void			rrb(t_list **b);
 void			rrr(t_list **a, t_list **b);
-//---------------------------------------------------------------
-//utils---------------------------------------------------------------
+
 int				is_already_sort(t_list *stack);
 int				check(t_list *lst, int n, char *nbr);
 t_list			*init_stack(char **av, int ac);
-void 			free_list(t_list *lst);
-void 			free_stack(t_stack *stack, char **args, int ac);
-//---------------------------------------------------------------
+void			free_list(t_list *lst);
+void			free_stack(t_stack *stack, char **args, int ac);
 
-//main---------------------------------------------------------------
 int				is_already_sort(t_list *stack);
 void			get_operate(t_stack *stack);
 int				print_opt(char *opt, t_stack *stack);
-//---------------------------------------------------------------
 
 #endif

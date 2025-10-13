@@ -19,13 +19,13 @@ static void	reverse_rotate(t_list **stack)
 
 	if (!(*stack) || !((*stack)->next))
 		return ;
-	tmp = *stack;//10 20 30
-	bot = ft_lstlast(*stack);//30
+	tmp = *stack;
+	bot = ft_lstlast(*stack);
 	while ((*stack)->next->next)
-		*stack = (*stack)->next;//at 20	
-	bot->next = tmp;//30 10 20 30
-	(*stack)->next = NULL; //30 10 20 
-	*stack = bot; //stack -> 20 -> NULL == stack -> 30 10 20 NULL;
+		*stack = (*stack)->next;
+	bot->next = tmp;
+	(*stack)->next = NULL;
+	*stack = bot;
 }
 
 void	rra(t_list **a)

@@ -12,7 +12,7 @@
 
 #include "checker.h"
 
-static void swap(t_list **stack)
+static void	swap(t_list **stack)
 {
 	t_list	*tmp;
 

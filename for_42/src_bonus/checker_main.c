@@ -75,7 +75,7 @@ int	main(int ac, char **av)
 {
 	t_stack	*stack;
 	char	**args;
-	
+
 	args = av;
 	if (ac == 1)
 		return (0);
@@ -87,7 +87,7 @@ int	main(int ac, char **av)
 	stack->stack_a = init_stack(args, ac);
 	if (stack->stack_a == NULL)
 	{
-		free_list(stack->stack_a);		
+		free_list(stack->stack_a);
 		free(stack);
 		return (-1);
 	}
