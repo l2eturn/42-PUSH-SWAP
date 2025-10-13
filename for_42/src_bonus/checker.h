@@ -45,4 +45,8 @@ int				is_already_sort(t_list *stack);
 void			get_operate(t_stack *stack);
 int				print_opt(char *opt, t_stack *stack);
 
+void			swap_group(char *opt, t_stack *stack);
+void			push_group(char *opt, t_stack *stack);
+void			rotate_group(char *opt, t_stack *stack);
+void			reverse_rotate_group(char *opt, t_stack *stack);
 #endif
