@@ -49,4 +49,5 @@ void			swap_group(char *opt, t_stack *stack);
 void			push_group(char *opt, t_stack *stack);
 void			rotate_group(char *opt, t_stack *stack);
 void			reverse_rotate_group(char *opt, t_stack *stack);
+
 #endif

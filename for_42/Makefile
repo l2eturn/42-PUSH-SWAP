@@ -36,6 +36,7 @@ SRCS_BONUS =	src_bonus/checker_main.c\
 				src_bonus/opt3_bonus.c\
 				src_bonus/opt4_bonus.c\
 				src_bonus/utils_bonus.c\
+				src_bonus/checker_helper.c\
 				libft/libft.a\
 
 $(NAME) : 
